@@ -1,7 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const authRoutes = require("./routes/authRoutes");
 
 const app = express();
+app.use(authRoutes);
+// mongoose
 const mongoUri =
   "mongodb+srv://admin:admin@cluster0.d0qey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 mongoose.connect(mongoUri, {
@@ -15,6 +18,7 @@ mongoose.connection.on("connected", () => {
 mongoose.connection.on("error", (err) => {
   console.log("Error connecting to mongo", err);
 });
+// ~mongoose
 
 app.get("/", (req, res) => {
   res.send("Hi there!");
