@@ -10,7 +10,35 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  name: {
+    type: String,
+    required: true,
+  },
+  lastname: {
+    type: String,
+    required: true,
+  },
+  bookId: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Book",
+    },
+  ],
+  followingTopicId: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Topic",
+    },
+  ],
+  followingAuthorsId: [{ type: mongoose.Schema.Types.ObjectId, ref: "Author" }],
+  forYou: {},
+  imgPath: { type: String },
+  socialMediaId: { type: mongoose.Schema.Types.ObjectId, ref: "SocialMedia" },
+  personalCards: { type: mongoose.Schema.Types.ObjectId, ref: "PersonalCard" },
+  swipeCount: Number,
+  settings: {},
 });
+
 userSchema.pre("save", function (next) {
   const user = this;
   if (!user.isModified("password")) return next();

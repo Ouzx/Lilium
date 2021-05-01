@@ -1,5 +1,14 @@
+// Models
 require("./models/User");
+require("./models/PersonalCard");
+require("./models/SocialMedia");
+require("./models/Rating");
+require("./models/Story");
+require("./models/Author");
+require("./models/Topic");
+require("./models/Book");
 
+// ~Models
 const express = require("express");
 const mongoose = require("mongoose");
 // const bodyParser = require('body-parser'); // deprecated

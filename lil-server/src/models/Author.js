@@ -1,22 +1,24 @@
 const mongoose = require("mongoose");
-//stackoverflow.com/a/24829503/12923707
-const bookSchema = new mongoose.Schema({
+
+const authorSchema = new mongoose.Schema({
   name: {
     type: String,
     default: "",
     required: true,
   },
-  topicId: [
-    { required: true, type: mongoose.Schema.Types.ObjectId, ref: "Topic" },
-  ],
-  authorId: [
+  bookId: [
     {
-      required: true,
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Author",
+      ref: "Book",
     },
   ],
-  pageCount: Number,
+  topicId: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Topic",
+    },
+  ],
+  bookCount: Number,
   ratingId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Rating",
@@ -28,6 +30,8 @@ const bookSchema = new mongoose.Schema({
   ],
   colors: [{ type: String }], // RGBA STRING
   imgPaths: [{ type: String }],
+  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  socialMediaId: { type: mongoose.Schema.Types.ObjectId, ref: "SocialMedia" },
 });
 
-mongoose.model("Book", bookSchema);
+mongoose.model("Author", authorSchema);
