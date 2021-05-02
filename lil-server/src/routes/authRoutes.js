@@ -7,9 +7,9 @@ const User = mongoose.model("User");
 const router = express.Router();
 
 router.post("/signup", async (req, res) => {
-  const { email, password, name, lastname } = req.body;
+  const { email, password, name, lastname, amdin } = req.body;
   try {
-    const user = new User({ email, password, name, lastname });
+    const user = new User({ email, password, name, lastname, amdin });
     await user.save();
     const token = jwt.sign({ userId: user._id }, "MY_SECRET_KEY");
     res.send({ token });

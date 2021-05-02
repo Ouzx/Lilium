@@ -37,10 +37,7 @@ const userSchema = new mongoose.Schema({
   personalCards: { type: mongoose.Schema.Types.ObjectId, ref: "PersonalCard" },
   swipeCount: Number,
   settings: {},
-  type: {
-    // 0: normal user //1453: admin
-    type: Number,
-  },
+  amdin: String, // 0: normal user //1453: admin
 });
 
 userSchema.pre("save", function (next) {

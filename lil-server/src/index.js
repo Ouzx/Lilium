@@ -43,7 +43,7 @@ mongoose.connection.on("error", (err) => {
 
 app.get("/", requireAuth, (req, res) => {
   // res.send(`Your email: ${req.user.email}`);
-  res.send("Ok");
+  res.send(req.user.amdin);
 });
 
 app.listen(3000, () => {
