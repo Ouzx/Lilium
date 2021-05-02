@@ -7,8 +7,8 @@ require("./models/Story");
 require("./models/Author");
 require("./models/Topic");
 require("./models/Book");
-
 // ~Models
+
 const express = require("express");
 const mongoose = require("mongoose");
 // const bodyParser = require('body-parser'); // deprecated
@@ -42,7 +42,8 @@ mongoose.connection.on("error", (err) => {
 // ~mongoose
 
 app.get("/", requireAuth, (req, res) => {
-  res.send(`Your email: ${req.user.email}`);
+  // res.send(`Your email: ${req.user.email}`);
+  res.send("Ok");
 });
 
 app.listen(3000, () => {
