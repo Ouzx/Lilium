@@ -16,7 +16,6 @@ const bookSchema = new mongoose.Schema({
       ref: "Author",
     },
   ],
-  pageCount: Number,
   ratingId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Rating",

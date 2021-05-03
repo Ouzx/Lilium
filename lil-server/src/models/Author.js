@@ -6,6 +6,11 @@ const authorSchema = new mongoose.Schema({
     default: "",
     required: true,
   },
+  lastname: {
+    type: String,
+    default: "",
+    required: true,
+  },
   bookId: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -19,10 +24,7 @@ const authorSchema = new mongoose.Schema({
     },
   ],
   bookCount: Number,
-  ratingId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Rating",
-  },
+  rating: mongoose.model("Rating").schema,
   descriptions: [
     {
       type: String,

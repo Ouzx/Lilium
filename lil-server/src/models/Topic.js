@@ -19,6 +19,7 @@ const topicSchema = new mongoose.Schema({
     },
   ],
   bookCount: Number,
+  authorCount: Number,
   ratingId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Rating",

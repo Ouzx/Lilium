@@ -13,6 +13,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 // const bodyParser = require('body-parser'); // deprecated
 const authRoutes = require("./routes/authRoutes");
+const authorRoutes = require("./routes/authorRoutes");
 const requireAuth = require("./middlewares/requireAuth");
 
 const app = express();
@@ -24,6 +25,7 @@ app.use(
 );
 
 app.use(authRoutes);
+app.use(authorRoutes);
 
 // mongoose
 const mongoUri =

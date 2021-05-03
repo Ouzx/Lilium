@@ -13,6 +13,7 @@ const storySchema = new mongoose.Schema({
     ref: "BookSchema",
   },
   content: [cardSchema],
+  contentLength: Number,
 });
 
 mongoose.model("Story", storySchema);
