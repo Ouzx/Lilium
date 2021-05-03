@@ -4,10 +4,6 @@ const readerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  lastname: {
-    type: String,
-    required: true,
-  },
   bookId: [
     {
       type: mongoose.Schema.Types.ObjectId,

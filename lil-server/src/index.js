@@ -34,6 +34,7 @@ mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
+  useFindAndModify: false,
 });
 mongoose.connection.on("connected", () => {
   console.log("Connected to mongo instance");
@@ -42,6 +43,11 @@ mongoose.connection.on("error", (err) => {
   console.log("Error connecting to mongo", err);
 });
 // ~mongoose
+
+// app.get("/:id", requireAuth, (req, res) => {
+//   // res.send(`Your email: ${req.user.email}`);
+//   res.send(req.params.id);
+// });
 
 app.get("/", requireAuth, (req, res) => {
   // res.send(`Your email: ${req.user.email}`);

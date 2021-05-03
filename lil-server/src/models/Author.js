@@ -6,11 +6,6 @@ const authorSchema = new mongoose.Schema({
     default: "",
     required: true,
   },
-  lastname: {
-    type: String,
-    default: "",
-    required: true,
-  },
   bookId: [
     {
       type: mongoose.Schema.Types.ObjectId,
