@@ -10,9 +10,14 @@ require("./models/Book");
 
 const express = require("express");
 const mongoose = require("mongoose");
-// const bodyParser = require('body-parser'); // deprecated
+
+// Routes
 const authRoutes = require("./routes/authRoutes");
 const authorRoutes = require("./routes/authorRoutes");
+const bookRoutes = require("./routes/bookRoutes");
+const topicRoutes = require("./routes/topicRoutes");
+// ~Routes
+
 const requireAuth = require("./middlewares/requireAuth");
 
 const app = express();
@@ -24,7 +29,10 @@ app.use(
 );
 
 app.use(authRoutes);
+
 app.use(authorRoutes);
+app.use(bookRoutes);
+app.use(topicRoutes);
 
 // mongoose
 const mongoUri =
