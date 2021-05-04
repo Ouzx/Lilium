@@ -16,10 +16,7 @@ const bookSchema = new mongoose.Schema({
       ref: "Author",
     },
   ],
-  ratingId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Rating",
-  },
+  rating: { likes: Number, dislikes: Number },
   descriptions: [
     {
       type: String,

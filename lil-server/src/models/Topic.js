@@ -20,10 +20,7 @@ const topicSchema = new mongoose.Schema({
   ],
   bookCount: Number,
   authorCount: Number,
-  ratingId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Rating",
-  },
+  rating: { likes: Number, dislikes: Number },
   descriptions: [
     {
       type: String,
@@ -31,7 +28,7 @@ const topicSchema = new mongoose.Schema({
   ],
   colors: [{ type: String }], // RGBA STRING
   imgPaths: [{ type: String }],
-  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Reader" }],
 });
 
 mongoose.model("Topic", topicSchema);

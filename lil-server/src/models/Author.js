@@ -19,7 +19,7 @@ const authorSchema = new mongoose.Schema({
     },
   ],
   bookCount: Number,
-  rating: mongoose.model("Rating").schema,
+  rating: { likes: Number, dislikes: Number },
   descriptions: [
     {
       type: String,
@@ -27,7 +27,7 @@ const authorSchema = new mongoose.Schema({
   ],
   colors: [{ type: String }], // RGBA STRING
   imgPaths: [{ type: String }],
-  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Reader" }],
   socialMediaId: { type: mongoose.Schema.Types.ObjectId, ref: "SocialMedia" },
 });
 

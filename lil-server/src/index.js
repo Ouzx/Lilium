@@ -2,7 +2,6 @@
 require("./models/User");
 require("./models/PersonalCard");
 require("./models/SocialMedia");
-require("./models/Rating");
 require("./models/Story");
 require("./models/Author");
 require("./models/Topic");
