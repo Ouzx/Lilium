@@ -34,20 +34,20 @@ router.post("/story/add", async (req, res) => {
   }
 });
 
-router.post("/story/update", async (req, res) => {
-  if (req.user.amdin != "1453")
-    return res
-      .status(403)
-      .send({ error: "You dont have privilege for this action." });
-  try {
-    await Story.findByIdAndUpdate(req.query.id, req.body, (err, result) => {
-      if (err) return res.status(422).send(err);
-      res.status(200).send("Story updated!");
-    });
-  } catch (err) {
-    return res.status(422).send(err);
-  }
-});
+// router.post("/story/update", async (req, res) => {
+//   if (req.user.amdin != "1453")
+//     return res
+//       .status(403)
+//       .send({ error: "You dont have privilege for this action." });
+//   try {
+//     await Story.findByIdAndUpdate(req.query.id, req.body, (err, result) => {
+//       if (err) return res.status(422).send(err);
+//       res.status(200).send("Story updated!");
+//     });
+//   } catch (err) {
+//     return res.status(422).send(err);
+//   }
+// });
 
 router.post("/story/delete", async (req, res) => {
   if (req.user.amdin != "1453")
