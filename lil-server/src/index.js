@@ -16,6 +16,7 @@ const authRoutes = require("./routes/authRoutes");
 const authorRoutes = require("./routes/authorRoutes");
 const bookRoutes = require("./routes/bookRoutes");
 const topicRoutes = require("./routes/topicRoutes");
+const storyRoutes = require("./routes/storyRoutes");
 // ~Routes
 
 const requireAuth = require("./middlewares/requireAuth");
@@ -33,6 +34,7 @@ app.use(authRoutes);
 app.use(authorRoutes);
 app.use(bookRoutes);
 app.use(topicRoutes);
+app.use(storyRoutes);
 
 // mongoose
 const mongoUri =
@@ -51,13 +53,7 @@ mongoose.connection.on("error", (err) => {
 });
 // ~mongoose
 
-// app.get("/:id", requireAuth, (req, res) => {
-//   // res.send(`Your email: ${req.user.email}`);
-//   res.send(req.params.id);
-// });
-
 app.get("/", requireAuth, (req, res) => {
-  // res.send(`Your email: ${req.user.email}`);
   res.send(req.user.amdin);
 });
 

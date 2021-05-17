@@ -12,10 +12,10 @@ router.get("/book", async (req, res) => {
   try {
     await Book.find({ _id: req.query.id }, (err, result) => {
       if (err) return res.status(422).send(err);
-      return res.send(result);
+      res.send(result);
     }); //.limit(req.query.limit);
   } catch (err) {
-    res.status(422).send(err);
+    return res.status(422).send(err);
   }
 });
 
@@ -27,11 +27,11 @@ router.get("/book/search", async (req, res) => {
       { name: { $regex: ".*" + req.query.q + ".*", $options: "i" } },
       (err, result) => {
         if (err) return res.status(422).send(err);
-        return res.send(result);
+        res.send(result);
       }
     );
   } catch (err) {
-    res.status(422).send(err);
+    return res.status(422).send(err);
   }
 });
 
@@ -46,7 +46,7 @@ router.post("/book/add", async (req, res) => {
     await book.save();
     res.send({ Book: book._id });
   } catch (err) {
-    res.status(422).send(err);
+    return res.status(422).send(err);
   }
 });
 
@@ -58,10 +58,10 @@ router.post("/book/update", async (req, res) => {
   try {
     await Book.findByIdAndUpdate(req.query.id, req.body, (err, result) => {
       if (err) return res.status(422).send(err);
-      return res.status(200).send("Book updated!");
+      res.status(200).send("Book updated!");
     });
   } catch (err) {
-    res.status(422).send(err);
+    return res.status(422).send(err);
   }
 });
 
@@ -73,10 +73,10 @@ router.post("/book/delete", async (req, res) => {
   try {
     await Book.findByIdAndDelete(req.query.id, req.body, (err, result) => {
       if (err) return res.status(422).send(err);
-      return res.status(200).send("Book deleted!");
+      res.status(200).send("Book deleted!");
     });
   } catch (err) {
-    res.status(422).send(err);
+    return res.status(422).send(err);
   }
 });
 

@@ -12,10 +12,10 @@ router.get("/topic", async (req, res) => {
   try {
     await Topic.find({ _id: req.query.id }, (err, result) => {
       if (err) return res.status(422).send(err);
-      return res.send(result);
+      res.send(result);
     }); //.limit(req.query.limit);
   } catch (err) {
-    res.status(422).send(err);
+    return res.status(422).send(err);
   }
 });
 
@@ -27,11 +27,11 @@ router.get("/topic/search", async (req, res) => {
       { name: { $regex: ".*" + req.query.q + ".*", $options: "i" } },
       (err, result) => {
         if (err) return res.status(422).send(err);
-        return res.send(result);
+        res.send(result);
       }
     );
   } catch (err) {
-    res.status(422).send(err);
+    return res.status(422).send(err);
   }
 });
 
@@ -46,7 +46,7 @@ router.post("/topic/add", async (req, res) => {
     await topic.save();
     res.send({ Topic: topic._id });
   } catch (err) {
-    res.status(422).send(err);
+    return res.status(422).send(err);
   }
 });
 
@@ -58,10 +58,10 @@ router.post("/topic/update", async (req, res) => {
   try {
     await Topic.findByIdAndUpdate(req.query.id, req.body, (err, result) => {
       if (err) return res.status(422).send(err);
-      return res.status(200).send("Topic updated!");
+      res.status(200).send("Topic updated!");
     });
   } catch (err) {
-    res.status(422).send(err);
+    return res.status(422).send(err);
   }
 });
 
@@ -73,10 +73,10 @@ router.post("/topic/delete", async (req, res) => {
   try {
     await Topic.findByIdAndDelete(req.query.id, req.body, (err, result) => {
       if (err) return res.status(422).send(err);
-      return res.status(200).send("Topic deleted!");
+      res.status(200).send("Topic deleted!");
     });
   } catch (err) {
-    res.status(422).send(err);
+    return res.status(422).send(err);
   }
 });
 
