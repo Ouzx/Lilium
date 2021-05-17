@@ -10,15 +10,14 @@ import SignupScreen from "./src/screens/SignupScreen";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const isLoggedIn = true;
+const isLoggedIn = false;
 
-function mainFlow() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
-    </Tab.Navigator>
-  );
-}
+const mainFlow = () => {
+  <Tab.Navigator>
+    <Tab.Screen name="Home" component={HomeScreen} />
+    <Tab.Screen name="Home" component={HomeScreen} />
+  </Tab.Navigator>;
+};
 
 function App() {
   return (
@@ -26,8 +25,10 @@ function App() {
       <Stack.Navigator>
         {isLoggedIn ? (
           <>
-            <Stack.Screen name="mainFlow" component={mainFlow} />
-            {/* <Stack.Screen name="sideFlow" component={SettingsScreen} /> */}
+            <Stack.Navigator>
+              <Stack.Screen name="mainFlow" component={mainFlow} />
+              {/* <Stack.Screen name="sideFlow" component={SettingsScreen} /> */}
+            </Stack.Navigator>
           </>
         ) : (
           <>
