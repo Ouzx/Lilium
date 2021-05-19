@@ -1,13 +1,17 @@
-import React from 'react'
-import {View, StyleSheet, Text} from 'react-native'
+import React from "react";
+import { View, StyleSheet, Text } from "react-native";
+// import { SafeAreaView } from "react-native-safe-area-context";
+import Box from "../components/box";
+import BoxCenter from "../components/box-center";
 
 const HomeScreen = () => {
-    return (
-        <View>
-            <Text>HomeScreen</Text>
-        </View>
-    );
-}
+  return (
+    <BoxCenter>
+      <Text>HomeScreen</Text>
+      <Box size={20} bg="blue" mt={20} />
+    </BoxCenter>
+  );
+};
 
 const styles = StyleSheet.create({});
 

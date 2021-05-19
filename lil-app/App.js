@@ -23,7 +23,11 @@ function mainFlow() {
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+      // screenOptions={{
+      //   headerShown: false,
+      // }}
+      >
         {isLoggedIn ? (
           <>
             <Stack.Screen name="mainFlow" component={mainFlow} />
