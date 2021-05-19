@@ -1,14 +1,19 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet, Text, StatusBar } from "react-native";
+import SafeAreaView from "react-native-safe-area-view";
+
+import theme from "../utils/theme";
 
 const LibraryScreen = () => {
   return (
-    <View>
-      <Text>Sign In Screen</Text>
-    </View>
+    <SafeAreaView style={theme.styles.mainContainer}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={theme.colors.barBg}
+      />
+      <Text style={{ marginTop: 10, color: "white" }}>Library Screen</Text>
+    </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default LibraryScreen;

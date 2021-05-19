@@ -1,22 +1,19 @@
 import React from "react";
-import { View, StyleSheet, Text, StatusBar } from "react-native";
-// import { SafeAreaView } from "react-native-safe-area-context";
+import { Text, StatusBar } from "react-native";
 import SafeAreaView from "react-native-safe-area-view";
+
+import theme from "../utils/theme";
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" />
-      <Text>HomeScreen</Text>
-      <View size={20} bg="blue" mt={20} />
+    <SafeAreaView style={theme.styles.mainContainer}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={theme.colors.barBg}
+      />
+      <Text style={{ marginTop: 10, color: "white" }}>HomeScreen</Text>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default HomeScreen;

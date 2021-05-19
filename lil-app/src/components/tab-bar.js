@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import theme from "../utils/theme";
 
 import { Foundation } from "@expo/vector-icons";
@@ -14,7 +14,7 @@ function TabBar({ state, descriptors, navigation }) {
   }
 
   return (
-    <View style={{ flexDirection: "row", backgroundColor: "white" }}>
+    <View style={{ flexDirection: "row", backgroundColor: theme.colors.barBg }}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -28,7 +28,7 @@ function TabBar({ state, descriptors, navigation }) {
 
         let stroke = {};
         if (isFocused) stroke = { color: theme.colors.activeRed };
-        else stroke = { color: "black" };
+        else stroke = { color: theme.colors.mainPassive };
 
         const onPress = () => {
           const event = navigation.emit({
@@ -42,17 +42,7 @@ function TabBar({ state, descriptors, navigation }) {
           }
         };
         return (
-          <TouchableOpacity
-            key={label}
-            onPress={onPress}
-            style={{
-              flex: 1,
-              height: 56,
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <TouchableOpacity key={label} onPress={onPress} style={styles.bar}>
             {label === "Home" && (
               <Foundation name="home" size={24} {...stroke} />
             )}
@@ -62,12 +52,22 @@ function TabBar({ state, descriptors, navigation }) {
             {label === "Library" && (
               <MaterialCommunityIcons name="library" size={24} {...stroke} />
             )}
-            <Text>{label}</Text>
+            <Text style={{ ...stroke }}>{label}</Text>
           </TouchableOpacity>
         );
       })}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  bar: {
+    flex: 1,
+    height: 56,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
 
 export default TabBar;
