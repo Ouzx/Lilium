@@ -1,18 +1,22 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, StatusBar } from "react-native";
 // import { SafeAreaView } from "react-native-safe-area-context";
-import Box from "../components/box";
-import BoxCenter from "../components/box-center";
+import SafeAreaView from "react-native-safe-area-view";
 
 const HomeScreen = () => {
   return (
-    <BoxCenter>
+    <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="light-content" />
       <Text>HomeScreen</Text>
-      <Box size={20} bg="blue" mt={20} />
-    </BoxCenter>
+      <View size={20} bg="blue" mt={20} />
+    </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default HomeScreen;

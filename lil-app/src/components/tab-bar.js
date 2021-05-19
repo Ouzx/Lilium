@@ -1,10 +1,6 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import theme from "../utils/theme";
-
-import Button from "./button";
-import Box from "./box";
-import TextBox from "./text";
 
 import { Foundation } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
@@ -18,7 +14,7 @@ function TabBar({ state, descriptors, navigation }) {
   }
 
   return (
-    <Box flexDirection="row" backgroundColor="white">
+    <View style={{ flexDirection: "row", backgroundColor: "white" }}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -30,7 +26,7 @@ function TabBar({ state, descriptors, navigation }) {
 
         const isFocused = state.index === index;
 
-        stroke = {};
+        let stroke = {};
         if (isFocused) stroke = { color: theme.colors.activeRed };
         else stroke = { color: "black" };
 
@@ -46,12 +42,16 @@ function TabBar({ state, descriptors, navigation }) {
           }
         };
         return (
-          <Button
+          <TouchableOpacity
             key={label}
-            flex={1}
             onPress={onPress}
-            height={56}
-            flexDirection="column"
+            style={{
+              flex: 1,
+              height: 56,
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
             {label === "Home" && (
               <Foundation name="home" size={24} {...stroke} />
@@ -62,11 +62,11 @@ function TabBar({ state, descriptors, navigation }) {
             {label === "Library" && (
               <MaterialCommunityIcons name="library" size={24} {...stroke} />
             )}
-            <TextBox {...stroke}>{label}</TextBox>
-          </Button>
+            <Text>{label}</Text>
+          </TouchableOpacity>
         );
       })}
-    </Box>
+    </View>
   );
 }
 
