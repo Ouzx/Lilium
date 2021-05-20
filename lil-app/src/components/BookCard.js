@@ -14,8 +14,9 @@ import Badge from "./Badge";
 import PageCount from "./PageCount";
 import RatingCount from "./RatingCount";
 import MicroAuthor from "./MicroAuthor";
+import RiliBig from "./RiliBig";
+
 import cover1 from "../../assets/covers/cover2.jpg";
-import readIcon from "../../assets/icons/read.png";
 import authorPic from "../../assets/authors/jamesmcbride.jpg";
 
 const BookCard = () => {
@@ -40,9 +41,10 @@ const BookCard = () => {
         <MicroAuthor name="James McBride" pic={authorPic} />
       </View>
 
-      <View style={styles.riliBack}>
-        <Image source={readIcon} style={styles.rili} />
-      </View>
+      <RiliBig
+        style={{ left: "95%", top: 110, position: "absolute" }}
+        onPress={() => console.log("asd")}
+      />
 
       <Badge text="NEW" />
     </ImageBackground>
@@ -50,20 +52,6 @@ const BookCard = () => {
 };
 
 const styles = StyleSheet.create({
-  riliBack: {
-    backgroundColor: theme.colors.activeRed,
-    width: 51,
-    height: 51,
-    left: 230,
-    top: 110,
-    position: "absolute",
-    borderRadius: theme.radius.full,
-  },
-  rili: {
-    position: "absolute",
-    left: "23%",
-    top: "20%",
-  },
   header: {
     fontWeight: "bold",
     fontSize: 24,
