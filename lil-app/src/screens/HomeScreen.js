@@ -17,7 +17,7 @@ import authorPic from "../../assets/authors/jamesmcbride.jpg";
 import cover1 from "../../assets/covers/cover1.jpg";
 import cover2 from "../../assets/covers/cover2.jpg";
 import cover3 from "../../assets/covers/cover3.jpg";
-import cover3Blur from "../../assets/covers/cover3Blur.jpg";
+import cover3Blur from "../../assets/covers/cover3Blur.png";
 
 const HomeScreen = () => {
   return (
