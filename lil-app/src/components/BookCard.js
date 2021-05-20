@@ -16,38 +16,52 @@ import RatingCount from "./RatingCount";
 import MicroAuthor from "./MicroAuthor";
 import RiliBig from "./RiliBig";
 
-import cover1 from "../../assets/covers/cover2.jpg";
-import authorPic from "../../assets/authors/jamesmcbride.jpg";
-
-const BookCard = () => {
+const BookCard = ({
+  header,
+  description,
+  pageCount,
+  ratingCount,
+  authorName,
+  authorId,
+  authorPic,
+  storyId,
+  coverPic,
+  badgeText,
+}) => {
   return (
-    <ImageBackground
-      source={cover1}
-      style={styles.card}
-      imageStyle={styles.image}
-    >
-      <Text style={styles.header}>Deacon King Kong</Text>
-      <Text style={styles.description}>
-        A mystery story, a crime novel, an urban farce, a sociological portrait
-        of late-1960s Brooklyn.
-      </Text>
+    <>
+      <TouchableOpacity
+        onPress={() => {
+          console.log(header);
+        }}
+      >
+        <ImageBackground
+          source={coverPic}
+          style={styles.card}
+          imageStyle={styles.image}
+        >
+          <Text style={styles.header}>{header}</Text>
+          <Text style={styles.description}>{description}</Text>
 
-      {/* PAGES / STARS / AUTHOR */}
-      <View style={{ position: "absolute", top: 100, left: 30 }}>
-        <View style={{ marginTop: 10, marginBottom: 10, flexDirection: "row" }}>
-          <PageCount pageCount="11" />
-          <RatingCount ratingCount="4.3 (1535)" />
-        </View>
-        <MicroAuthor name="James McBride" pic={authorPic} />
-      </View>
+          {/* PAGES / STARS / AUTHOR */}
+          <View style={{ position: "absolute", top: 100, left: 30 }}>
+            <View
+              style={{ marginTop: 10, marginBottom: 10, flexDirection: "row" }}
+            >
+              <PageCount pageCount={pageCount} />
+              <RatingCount ratingCount={ratingCount} />
+            </View>
+            <MicroAuthor name={authorName} pic={authorPic} id={authorId} />
+          </View>
 
-      <RiliBig
-        style={{ left: "95%", top: 110, position: "absolute" }}
-        onPress={() => console.log("asd")}
-      />
-
-      <Badge text="NEW" />
-    </ImageBackground>
+          <RiliBig
+            style={{ left: "95%", top: 110, position: "absolute" }}
+            id={storyId}
+          />
+        </ImageBackground>
+      </TouchableOpacity>
+      {badgeText && <Badge text={badgeText} />}
+    </>
   );
 };
 

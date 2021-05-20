@@ -4,9 +4,14 @@ import theme from "../utils/theme";
 
 import readIcon from "../../assets/icons/read.png";
 
-const RiliBig = ({ onPress, style }) => {
+const RiliBig = ({ onPress, style, id }) => {
   return (
-    <TouchableOpacity style={[styles.riliBack, style]} onPress={onPress}>
+    <TouchableOpacity
+      style={[styles.riliBack, style]}
+      onPress={() => {
+        console.log("Story: " + id);
+      }}
+    >
       <Image source={readIcon} style={styles.rili} />
     </TouchableOpacity>
   );

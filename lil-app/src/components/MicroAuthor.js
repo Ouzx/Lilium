@@ -1,13 +1,18 @@
 import React from "react";
-import { Text, View, Image, StyleSheet } from "react-native";
+import { Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import theme from "../utils/theme";
 
-const MicroAuthor = ({ name, pic }) => {
+const MicroAuthor = ({ name, pic, id }) => {
   return (
-    <View style={theme.styles.horizontalCenter}>
+    <TouchableOpacity
+      onPress={() => {
+        console.log("Author:" + id);
+      }}
+      style={theme.styles.horizontalCenter}
+    >
       <Image source={pic} style={styles.authorPic} />
       <Text style={styles.authorText}>{name}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

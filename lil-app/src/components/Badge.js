@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 64,
     height: 28,
-    left: 32,
-    top: -14,
+    left: 64,
+    top: 5,
 
     borderRadius: theme.radius.medium,
     alignItems: "center",
