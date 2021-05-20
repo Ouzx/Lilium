@@ -13,8 +13,8 @@ import theme from "../utils/theme";
 import Badge from "./Badge";
 import PageCount from "./PageCount";
 import RatingCount from "./RatingCount";
-
-import cover1 from "../../assets/covers/cover1.jpg";
+import MicroAuthor from "./MicroAuthor";
+import cover1 from "../../assets/covers/cover2.jpg";
 import readIcon from "../../assets/icons/read.png";
 import authorPic from "../../assets/authors/jamesmcbride.jpg";
 
@@ -30,17 +30,20 @@ const BookCard = () => {
         A mystery story, a crime novel, an urban farce, a sociological portrait
         of late-1960s Brooklyn.
       </Text>
-      <View style={styles.infoSection}>
-        <PageCount pageCount="11" />
-        <RatingCount ratingCount="4.3 (1535)" />
+
+      {/* PAGES / STARS / AUTHOR */}
+      <View style={{ position: "absolute", top: 100, left: 30 }}>
+        <View style={{ marginTop: 10, marginBottom: 10, flexDirection: "row" }}>
+          <PageCount pageCount="11" />
+          <RatingCount ratingCount="4.3 (1535)" />
+        </View>
+        <MicroAuthor name="James McBride" pic={authorPic} />
       </View>
-      <View style={styles.infoSection}>
-        <Image source={authorPic} style={styles.authorPic} />
-        <Text style={styles.authorText}>James McBride</Text>
-      </View>
+
       <View style={styles.riliBack}>
         <Image source={readIcon} style={styles.rili} />
       </View>
+
       <Badge text="NEW" />
     </ImageBackground>
   );
@@ -67,16 +70,12 @@ const styles = StyleSheet.create({
     color: theme.colors.activeText,
   },
   description: {
-    fontSize: 9,
-    height: 40,
+    fontSize: 11,
+    height: 80,
     color: theme.colors.activeText,
     paddingRight: 50,
   },
-  infoSection: {
-    marginTop: 10,
-    flexDirection: "row",
-    alignItems: "center",
-  },
+
   image: {
     borderBottomLeftRadius: theme.radius.medium,
     borderTopLeftRadius: theme.radius.medium,
@@ -92,17 +91,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: theme.radius.medium,
     borderTopRightRadius: theme.radius.medium,
     position: "relative",
-  },
-  authorPic: {
-    borderRadius: theme.radius.full,
-    resizeMode: "cover",
-    width: 16,
-    height: 16,
-    marginRight: 5,
-  },
-  authorText: {
-    fontSize: 13,
-    color: theme.colors.activeText,
   },
 });
 

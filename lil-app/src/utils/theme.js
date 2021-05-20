@@ -24,6 +24,10 @@ const styles = StyleSheet.create({
     color: colors.passiveText,
     fontSize: 13,
   },
+  horizontalCenter: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
 });
 
 export default {
