@@ -10,6 +10,7 @@ import {
 
 import theme from "../utils/theme";
 import Card from "./icons/Cards";
+import Badge from "./Badge";
 import { Feather } from "@expo/vector-icons";
 
 import cover1 from "../../assets/covers/cover1.jpg";
@@ -50,30 +51,12 @@ const BookCard = () => {
       <View style={styles.riliBack}>
         <Image source={readIcon} style={styles.rili} />
       </View>
-      <View style={styles.badge}>
-        <Text style={styles.badgeText}>NEW</Text>
-      </View>
+      <Badge text="NEW" />
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  badgeText: {
-    fontSize: 16,
-    color: theme.colors.activeText,
-    fontWeight: "bold",
-  },
-  badge: {
-    position: "absolute",
-    width: 64,
-    height: 28,
-    left: 32,
-    top: -14,
-    backgroundColor: theme.colors.activeRed,
-    borderRadius: theme.radius.medium,
-    alignItems: "center",
-    justifyContent: "center",
-  },
   riliBack: {
     backgroundColor: theme.colors.activeRed,
     width: 51,
