@@ -78,7 +78,6 @@ const BookCard = ({
 
 const styles = StyleSheet.create({
   header: {
-    fontWeight: "bold",
     fontSize: 24,
     color: theme.colors.activeText,
   },
@@ -86,7 +85,8 @@ const styles = StyleSheet.create({
     fontSize: 11,
     height: 80,
     color: theme.colors.activeText,
-    paddingRight: 50,
+    // paddingRight: 50,
+    width: "80%",
   },
 
   image: {

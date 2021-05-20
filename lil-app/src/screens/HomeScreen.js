@@ -13,20 +13,10 @@ import cover2 from "../../assets/covers/cover2.jpg";
 import cover3 from "../../assets/covers/cover3.jpg";
 
 const HomeScreen = () => {
-  const DATA = ["1", "2", "3", "4", "5", "6", "7", "8"];
   return (
-    <SafeAreaView
-      style={[
-        theme.styles.mainContainer,
-        { justifyContent: "space-between", padding: 30 },
-      ]}
-    >
+    <SafeAreaView style={[theme.styles.mainContainer, { padding: 30 }]}>
       <Header />
-      {/* <FlatList
-        data={DATA}
-        renderItem={(props) => <BookCard />}
-        keyExtractor={(item) => item}
-      /> */}
+
       <BookCard
         header="Deacon King Kong"
         description="A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn."
@@ -39,7 +29,14 @@ const HomeScreen = () => {
         coverPic={cover1}
         badgeText="POPULAR"
       />
-      <BookCard
+    </SafeAreaView>
+  );
+};
+
+export default HomeScreen;
+
+/*
+ <BookCard
         header="Harry Potter"
         description="A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn."
         pageCount="5200"
@@ -65,8 +62,4 @@ const HomeScreen = () => {
         badgeText="LEGEND"
         badgeColor={theme.colors.blue}
       />
-    </SafeAreaView>
-  );
-};
-
-export default HomeScreen;
+*/
