@@ -2,14 +2,9 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import theme from "../utils/theme";
 
-const Badge = ({ text, backColor, foreColor }) => {
+const Badge = ({ text, style, foreColor }) => {
   return (
-    <View
-      style={[
-        styles.badge,
-        { backgroundColor: backColor ? backColor : theme.colors.activeRed },
-      ]}
-    >
+    <View style={[styles.badge, style]}>
       <Text
         style={[
           styles.badgeText,
@@ -28,11 +23,8 @@ const styles = StyleSheet.create({
   },
   badge: {
     position: "absolute",
-    width: 64,
+    padding: 10,
     height: 28,
-    left: 64,
-    top: 5,
-
     borderRadius: theme.radius.medium,
     alignItems: "center",
     justifyContent: "center",

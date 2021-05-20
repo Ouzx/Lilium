@@ -27,9 +27,11 @@ const BookCard = ({
   storyId,
   coverPic,
   badgeText,
+  badgeColor,
+  style,
 }) => {
   return (
-    <>
+    <View style={[{ position: "relative", marginTop: 30 }, style]}>
       <TouchableOpacity
         onPress={() => {
           console.log(header);
@@ -60,8 +62,17 @@ const BookCard = ({
           />
         </ImageBackground>
       </TouchableOpacity>
-      {badgeText && <Badge text={badgeText} />}
-    </>
+      {badgeText && (
+        <Badge
+          text={badgeText}
+          style={{
+            top: -14,
+            left: 30,
+            backgroundColor: badgeColor ? badgeColor : theme.colors.activeRed,
+          }}
+        />
+      )}
+    </View>
   );
 };
 
@@ -85,9 +96,9 @@ const styles = StyleSheet.create({
   },
   card: {
     resizeMode: "cover",
-    marginTop: 20,
+
     height: 180,
-    marginHorizontal: 30,
+
     padding: 30,
     borderBottomLeftRadius: theme.radius.medium,
     borderTopLeftRadius: theme.radius.medium,

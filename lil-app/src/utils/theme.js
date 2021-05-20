@@ -13,6 +13,8 @@ const colors = {
   mainBg: "#09121C",
   passiveText: "#898F97",
   activeText: "#fff",
+  purple: "#C600F9",
+  blue: "#3369FF",
 };
 
 const styles = StyleSheet.create({
@@ -23,6 +25,10 @@ const styles = StyleSheet.create({
   infoText: {
     color: colors.passiveText,
     fontSize: 13,
+  },
+  activeText: {
+    color: colors.activeText,
+    fontSize: 14,
   },
   horizontalCenter: {
     flexDirection: "row",
