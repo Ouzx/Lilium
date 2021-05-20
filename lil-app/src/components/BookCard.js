@@ -9,9 +9,10 @@ import {
 } from "react-native";
 
 import theme from "../utils/theme";
-import Card from "./icons/Cards";
+
 import Badge from "./Badge";
-import { Feather } from "@expo/vector-icons";
+import PageCount from "./PageCount";
+import RatingCount from "./RatingCount";
 
 import cover1 from "../../assets/covers/cover1.jpg";
 import readIcon from "../../assets/icons/read.png";
@@ -30,19 +31,8 @@ const BookCard = () => {
         of late-1960s Brooklyn.
       </Text>
       <View style={styles.infoSection}>
-        <>
-          <Card style={{ paddingTop: 18, marginRight: 3 }} />
-          <Text style={styles.infoText}>495 pages</Text>
-        </>
-        <>
-          <Feather
-            name="star"
-            size={15}
-            color={theme.colors.passiveText}
-            style={{ marginLeft: 15, marginRight: 3 }}
-          />
-          <Text style={styles.infoText}>4.5 (1535)</Text>
-        </>
+        <PageCount pageCount="11" />
+        <RatingCount ratingCount="4.3 (1535)" />
       </View>
       <View style={styles.infoSection}>
         <Image source={authorPic} style={styles.authorPic} />
@@ -73,23 +63,19 @@ const styles = StyleSheet.create({
   },
   header: {
     fontWeight: "bold",
-    fontSize: 22,
+    fontSize: 24,
     color: theme.colors.activeText,
   },
   description: {
-    fontSize: 12,
+    fontSize: 9,
     height: 40,
     color: theme.colors.activeText,
     paddingRight: 50,
   },
   infoSection: {
-    marginTop: 15,
+    marginTop: 10,
     flexDirection: "row",
     alignItems: "center",
-  },
-  infoText: {
-    color: theme.colors.passiveText,
-    fontSize: 13,
   },
   image: {
     borderBottomLeftRadius: theme.radius.medium,

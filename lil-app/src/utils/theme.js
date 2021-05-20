@@ -20,6 +20,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.mainBg,
   },
+  infoText: {
+    color: colors.passiveText,
+    fontSize: 13,
+  },
 });
 
 export default {
