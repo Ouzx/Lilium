@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const radius = {
   small: 16,
-  meduim: 24,
+  medium: 24,
   full: 9999,
 };
 
@@ -11,6 +11,8 @@ const colors = {
   mainPassive: "#A6A6A6",
   barBg: "#070D15",
   mainBg: "#09121C",
+  passiveText: "#898F97",
+  activeText: "#fff",
 };
 
 const styles = StyleSheet.create({
@@ -21,8 +23,7 @@ const styles = StyleSheet.create({
 });
 
 export default {
-  space,
-  radii,
+  radius,
   colors,
   styles,
 };

@@ -10,7 +10,7 @@ import LibraryScreen from "./src/screens/LibraryScreen";
 import SigninScreen from "./src/screens/SigninScreen";
 import SignupScreen from "./src/screens/SignupScreen";
 
-import TabBar from "./src/components/tab-bar";
+import TabBar from "./src/components/TabBar";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
