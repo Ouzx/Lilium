@@ -52,7 +52,7 @@ const HomeScreen = () => {
       </Text>
       <View style={{ flexDirection: "row", padding: 30, paddingTop: 10 }}>
         <MiniBookCard
-          header="Deacon King Kong"
+          header="Deacon King Kong asdasd asdasd"
           description="A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn."
           pageCount="5200"
           ratingCount="4.3 (1250)"

@@ -22,8 +22,9 @@ const MiniBookCard = ({
       style={[
         {
           marginRight: 20,
-          height: 136,
+          height: 234,
           width: 147,
+          position: "relative",
         },
         style,
       ]}
@@ -34,15 +35,15 @@ const MiniBookCard = ({
         }}
       >
         <Image source={coverPic} style={styles.card} />
-
-        <Text style={styles.header}>{header}</Text>
-
-        <PageCount pageCount={pageCount} />
-        <MicroAuthor name={authorName} pic={authorPic} id={authorId} />
+        <View style={{ paddingLeft: 5 }}>
+          <Text style={styles.header}>{header}</Text>
+          <PageCount pageCount={pageCount} />
+          <MicroAuthor name={authorName} pic={authorPic} id={authorId} />
+        </View>
       </TouchableOpacity>
 
       <RiliMini
-        style={{ left: "80%", top: "125%", position: "absolute" }}
+        style={{ left: "75%", top: "43%", position: "absolute" }}
         id={storyId}
       />
     </View>
@@ -54,14 +55,16 @@ const styles = StyleSheet.create({
     fontSize: 14,
     height: 32,
     color: theme.colors.activeText,
+    marginBottom: 8,
   },
   card: {
     resizeMode: "cover",
     height: 136,
     width: 147,
-    borderBottomLeftRadius: theme.radius.medium,
-    borderTopLeftRadius: theme.radius.medium,
-    borderTopRightRadius: theme.radius.medium,
+    marginBottom: 10,
+    borderBottomLeftRadius: theme.radius.small,
+    borderTopLeftRadius: theme.radius.small,
+    borderTopRightRadius: theme.radius.small,
   },
 });
 
