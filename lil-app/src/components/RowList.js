@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, ScrollView, View, FlatList } from "react-native";
+import { Text, View, FlatList } from "react-native";
 import theme from "../utils/theme";
 
 import MiniBookCard from "./MiniBookCard";
@@ -26,7 +26,7 @@ const RowList = ({ name, data, style }) => {
           flexDirection: "row",
           alignItems: "center",
           marginBottom: 10,
-          paddingTop: theme.numbers.padding,
+          paddingTop: 10,
           paddingLeft: theme.numbers.padding,
         }}
       >
@@ -52,5 +52,4 @@ const RowList = ({ name, data, style }) => {
   );
 };
 
-const styles = StyleSheet.create({});
 export default RowList;
