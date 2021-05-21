@@ -21,7 +21,6 @@ const MiniBookCard = ({
     <View
       style={[
         {
-          marginRight: 20,
           height: 234,
           width: 147,
           position: "relative",

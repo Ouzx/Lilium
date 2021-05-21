@@ -1,5 +1,9 @@
 import { StyleSheet } from "react-native";
 
+const numbers = {
+  padding: 30,
+};
+
 const radius = {
   small: 16,
   medium: 24,
@@ -40,4 +44,5 @@ export default {
   radius,
   colors,
   styles,
+  numbers,
 };
