@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     width: 51,
     height: 51,
     borderRadius: theme.radius.full,
+    position: "relative",
   },
   rili: {
     position: "absolute",

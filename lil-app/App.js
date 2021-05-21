@@ -19,7 +19,10 @@ const isLoggedIn = true;
 
 function mainFlow() {
   return (
-    <Tab.Navigator tabBar={(props) => <TabBar {...props} />}>
+    <Tab.Navigator
+      initialRouteName="Search"
+      tabBar={(props) => <TabBar {...props} />}
+    >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Search" component={SearchScreen} />
       <Tab.Screen name="Library" component={LibraryScreen} />

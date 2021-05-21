@@ -13,10 +13,14 @@ const radius = {
 const colors = {
   activeRed: "#FF334B",
   mainPassive: "#A6A6A6",
+
   barBg: "#070D15",
   mainBg: "#09121C",
+  passiveBg: "#19232F",
+
   passiveText: "#898F97",
   activeText: "#fff",
+
   purple: "#C600F9",
   blue: "#3369FF",
 };
