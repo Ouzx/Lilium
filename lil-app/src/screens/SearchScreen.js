@@ -3,8 +3,9 @@ import { StyleSheet, Text, ScrollView, View } from "react-native";
 import SafeAreaView from "react-native-safe-area-view";
 import theme from "../utils/theme";
 
-import CategoryList from "../components/CategoryList";
 import Header from "../components/Header";
+import SearchBar from "../components/SearchBar";
+import CategoryList from "../components/CategoryList";
 
 const SearchScreen = () => {
   return (
@@ -28,7 +29,7 @@ const SearchScreen = () => {
             Browse
           </Text>
         </View>
-
+        <SearchBar />
         <CategoryList
           name="The genres you read the most"
           data={[
