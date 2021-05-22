@@ -19,7 +19,7 @@ import jk from "../../assets/authors/JK.png";
 const SearchScreen = () => {
   return (
     <SafeAreaView style={theme.styles.mainContainer}>
-      <ScrollView>
+      <ScrollView keyboardShouldPersistTaps="handled">
         <View
           style={{
             paddingLeft: theme.numbers.padding,

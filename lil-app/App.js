@@ -21,6 +21,9 @@ function mainFlow() {
   return (
     <Tab.Navigator
       initialRouteName="Search"
+      tabBarOptions={{
+        keyboardHidesTabBar: true,
+      }}
       tabBar={(props) => <TabBar {...props} />}
     >
       <Tab.Screen name="Home" component={HomeScreen} />

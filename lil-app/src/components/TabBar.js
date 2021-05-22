@@ -1,5 +1,11 @@
-import React from "react";
-import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
+import React, { useEffect, useState } from "react";
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  Keyboard,
+} from "react-native";
 import theme from "../utils/theme";
 
 import { Foundation } from "@expo/vector-icons";
@@ -7,11 +13,21 @@ import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 function TabBar({ state, descriptors, navigation }) {
-  const focusedOptions = descriptors[state.routes[state.index].key].options;
+  const [isFocused, setFocus] = useState(false);
+  useEffect(() => {
+    Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
+    Keyboard.addListener("keyboardDidHide", _keyboardDidHide);
 
-  if (focusedOptions.tabBarVisible === false) {
-    return null;
-  }
+    return () => {
+      Keyboard.removeListener("keyboardDidShow", _keyboardDidShow);
+      Keyboard.removeListener("keyboardDidHide", _keyboardDidHide);
+    };
+  }, []);
+
+  const _keyboardDidShow = () => setFocus(true);
+  const _keyboardDidHide = () => setFocus(false);
+
+  if (isFocused) return null;
 
   return (
     <View style={{ flexDirection: "row", backgroundColor: theme.colors.barBg }}>
