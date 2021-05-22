@@ -7,9 +7,9 @@ import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import CategoryList from "../components/CategoryList";
 import MiniTopic from "../components/MiniTopic";
-
+import AuthorCard from "../components/AuthorCard";
 import cover1 from "../../assets/covers/cover1.jpg";
-
+import jk from "../../assets/authors/JK.png";
 const SearchScreen = () => {
   return (
     <SafeAreaView style={theme.styles.mainContainer}>
@@ -33,13 +33,21 @@ const SearchScreen = () => {
           </Text>
         </View>
         <SearchBar />
-        <MiniTopic
+
+        <AuthorCard
+          header="J.K. Rowling"
+          bookCount={86}
+          color={theme.colors.activeRed}
+          pic={jk}
+          style={{ marginHorizontal: 30, marginVertical: 10 }}
+        />
+        {/* <MiniTopic
           header="Crime"
           ratingCount="4.9 (1659)"
           bookCount={314}
           topicId="1"
           coverPic={cover1}
-        />
+        /> */}
 
         {/* <CategoryList
           name="The genres you read the most"

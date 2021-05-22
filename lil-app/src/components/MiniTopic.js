@@ -21,14 +21,7 @@ const MiniTopic = ({
   style,
 }) => {
   return (
-    <View
-      style={[
-        {
-          position: "relative",
-        },
-        style,
-      ]}
-    >
+    <View style={[style]}>
       <TouchableOpacity
         onPress={() => {
           console.log(header);
