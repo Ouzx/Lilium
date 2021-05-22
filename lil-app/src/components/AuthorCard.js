@@ -4,7 +4,12 @@ import theme from "../utils/theme";
 
 const AuthorCard = ({ header, bookCount, color, authorId, pic, style }) => {
   return (
-    <View style={[styles.container, style]}>
+    <TouchableOpacity
+      onPress={() => {
+        console.log(header);
+      }}
+      style={[styles.container, style]}
+    >
       <View style={[styles.card, { backgroundColor: color }]}>
         <Image source={pic} style={styles.image} />
         <View style={{ justifyContent: "center" }}>
@@ -12,7 +17,7 @@ const AuthorCard = ({ header, bookCount, color, authorId, pic, style }) => {
           <Text style={styles.text2}>Books: {bookCount}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
