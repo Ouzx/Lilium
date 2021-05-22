@@ -2,20 +2,17 @@ import React from "react";
 import { Text, View, FlatList } from "react-native";
 import theme from "../utils/theme";
 
-import MiniBookCard from "./MiniBookCard";
-import { AntDesign } from "@expo/vector-icons";
+import MiniTopic from "../components/MiniTopic";
 
-const RowList = ({ name, data, style }) => {
+const RowTopicList = ({ name, data, style }) => {
   const renderItem = ({ item }) => (
-    <MiniBookCard
+    <MiniTopic
       header={item.header}
-      pageCount={item.pageCount}
-      authorName={item.authorName}
+      bookCount={item.bookCount}
+      ratingCount={item.ratingCount}
       authorId={item.authorId}
-      authorPic={item.authorPic}
-      storyId={item.storyId}
       coverPic={item.coverPic}
-      style={{ marginLeft: 10 }}
+      style={{ marginLeft: 10, marginVertical: 10 }}
     />
   );
 
@@ -30,17 +27,9 @@ const RowList = ({ name, data, style }) => {
           paddingLeft: theme.numbers.padding,
         }}
       >
-        <Text
-          style={[{ fontSize: 24, color: theme.colors.activeText }, style.text]}
-        >
+        <Text style={{ fontSize: 16, color: theme.colors.mainPassive }}>
           {name}
         </Text>
-        <AntDesign
-          name="right"
-          size={20}
-          color="white"
-          style={{ paddingTop: 5, paddingLeft: 5 }}
-        />
       </View>
 
       <FlatList
@@ -54,4 +43,4 @@ const RowList = ({ name, data, style }) => {
   );
 };
 
-export default RowList;
+export default RowTopicList;

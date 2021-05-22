@@ -4,7 +4,7 @@ import theme from "../utils/theme";
 
 import AuthorCard from "./AuthorCard";
 
-const RowList = ({ name, data, style }) => {
+const RowAuthorList = ({ name, data, style }) => {
   const renderItem = ({ item }) => (
     <AuthorCard
       header={item.header}
@@ -43,4 +43,4 @@ const RowList = ({ name, data, style }) => {
   );
 };
 
-export default RowList;
+export default RowAuthorList;
