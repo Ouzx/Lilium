@@ -6,6 +6,9 @@ import theme from "../utils/theme";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import CategoryList from "../components/CategoryList";
+import MiniTopic from "../components/MiniTopic";
+
+import cover1 from "../../assets/covers/cover1.jpg";
 
 const SearchScreen = () => {
   return (
@@ -30,7 +33,15 @@ const SearchScreen = () => {
           </Text>
         </View>
         <SearchBar />
-        <CategoryList
+        <MiniTopic
+          header="Crime"
+          ratingCount="4.9 (1659)"
+          bookCount={314}
+          topicId="1"
+          coverPic={cover1}
+        />
+
+        {/* <CategoryList
           name="The genres you read the most"
           data={[
             {
@@ -87,7 +98,7 @@ const SearchScreen = () => {
               colors: ["#FF07F5", "#C5F114"],
             },
           ]}
-        />
+        /> */}
       </ScrollView>
     </SafeAreaView>
   );

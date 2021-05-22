@@ -56,7 +56,10 @@ const BookCard = ({
               style={{ marginTop: 10, marginBottom: 10, flexDirection: "row" }}
             >
               <PageCount pageCount={pageCount} />
-              <RatingCount ratingCount={ratingCount} />
+              <RatingCount
+                ratingCount={ratingCount}
+                style={{ marginLeft: 15 }}
+              />
             </View>
             <MicroAuthor name={authorName} pic={authorPic} id={authorId} />
           </View>
