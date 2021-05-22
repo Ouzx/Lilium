@@ -7,7 +7,8 @@ import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import CategoryList from "../components/CategoryList";
 import MiniTopic from "../components/MiniTopic";
-import AuthorCard from "../components/AuthorCard";
+import RowAuthorList from "../components/RowAuthorList";
+
 import cover1 from "../../assets/covers/cover1.jpg";
 import jk from "../../assets/authors/JK.png";
 const SearchScreen = () => {
@@ -33,13 +34,28 @@ const SearchScreen = () => {
           </Text>
         </View>
         <SearchBar />
-
-        <AuthorCard
-          header="J.K. Rowling"
-          bookCount={86}
-          color={theme.colors.activeRed}
-          pic={jk}
-          style={{ marginHorizontal: 30, marginVertical: 10 }}
+        <RowAuthorList
+          name="Authors (3)"
+          data={[
+            {
+              header: "J.K. Rowling1",
+              bookCount: 86,
+              color: theme.colors.activeRed,
+              pic: jk,
+            },
+            {
+              header: "J.K. Rowling2",
+              bookCount: 86,
+              color: theme.colors.activeRed,
+              pic: jk,
+            },
+            {
+              header: "J.K. Rowling3",
+              bookCount: 86,
+              color: theme.colors.activeRed,
+              pic: jk,
+            },
+          ]}
         />
         {/* <MiniTopic
           header="Crime"
