@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     // flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
-    paddingBottom: 16,
+    paddingBottom: 0,
   },
   text: {
     color: theme.colors.passiveText,

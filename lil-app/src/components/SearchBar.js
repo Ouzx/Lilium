@@ -11,28 +11,30 @@ import theme from "../utils/theme";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const SearchBar = () => {
+const SearchBar = ({ onFocusChange }) => {
   const [value, setValue] = useState("");
   const [isFocused, setFocus] = useState(false);
 
-  // useEffect(() => {
-  //   Keyboard.addListener("keyboardDidShow", onFocus);
-  //   Keyboard.addListener("keyboardDidHide", onDeFocus);
+  useEffect(() => {
+    Keyboard.addListener("keyboardDidHide", onDeFocus);
 
-  //   // cleanup function
-  //   return () => {
-  //     Keyboard.removeListener("keyboardDidShow", onFocus);
-  //     Keyboard.removeListener("keyboardDidHide", onDeFocus);
-  //   };
-  // });
+    return () => {
+      Keyboard.removeListener("keyboardDidHide", onDeFocus);
+    };
+  });
 
-  // const onFocus = () => {
-  //   setFocus(true);
-  // };
-  // const onDeFocus = () => {
-  //   setFocus(false);
-  // };
+  const onChangeText = (text) => {
+    if (value != "") changeFocus(true);
+    setValue(text);
+  };
+  const onDeFocus = () => {
+    if (value == "") changeFocus(false);
+  };
 
+  const changeFocus = (focus) => {
+    setFocus(focus);
+    onFocusChange(focus);
+  };
   return (
     <View style={styles.container}>
       <TextInput
@@ -40,9 +42,8 @@ const SearchBar = () => {
         placeholder="Books, Topics, Authors"
         placeholderTextColor={theme.colors.passiveText}
         value={value}
-        onChangeText={setValue}
+        onChangeText={onChangeText}
         autoCorrect={false}
-        // onFocus={onFocus}
       />
       <View
         style={{
@@ -51,7 +52,12 @@ const SearchBar = () => {
         }}
       >
         {value != "" ? (
-          <TouchableOpacity onPress={() => setValue("")}>
+          <TouchableOpacity
+            onPress={() => {
+              setValue("");
+              changeFocus(false);
+            }}
+          >
             <MaterialCommunityIcons
               name="window-close"
               size={24}
