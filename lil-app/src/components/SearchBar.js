@@ -7,25 +7,13 @@ const SearchBar = () => {
   const [textInputValue, setTextInputValue] = useState("");
   return (
     <View style={styles.container}>
-      {textInputValue === "" && (
-        <Text
-          style={{
-            color: theme.colors.passiveText,
-            position: "absolute",
-            padding: 16,
-            fontSize: 14,
-          }}
-        >
-          Books, Topics, Authors
-        </Text>
-      )}
       <TextInput
         style={styles.textInput}
         placeholder="Books, Topics, Authors"
-        placeholderStyle={styles.placeholder}
         onChangeText={setTextInputValue}
         value={textInputValue}
         autoCorrect={false}
+        placeholderTextColor={theme.colors.passiveText}
       />
       <AntDesign
         name="search1"
