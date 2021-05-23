@@ -24,7 +24,7 @@ const SearchScreen = () => {
       <ScrollView keyboardShouldPersistTaps="handled">
         <HWT text="Browse" />
         <SearchBar onFocusChange={setFocus} />
-        {!focus ? (
+        {focus ? (
           <View>
             <RowList
               name="Topics (4)"

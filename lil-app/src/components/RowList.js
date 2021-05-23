@@ -44,7 +44,8 @@ const RowList = ({
       )}
       <View style={style && style.content}>
         <FlatList
-          numColumns={numColumns && numColumns}
+          key={isHorizontal ? "h" : "v"}
+          numColumns={numColumns && !isHorizontal && numColumns}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
           horizontal={isHorizontal}
@@ -56,7 +57,5 @@ const RowList = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default RowList;
