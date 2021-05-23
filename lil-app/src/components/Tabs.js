@@ -14,7 +14,7 @@ const Item = ({ item, onPress, textColor }) => (
   </TouchableOpacity>
 );
 
-const Tabs = ({ data, style }) => {
+const Tabs = ({ data, style, onChange }) => {
   const [selectedId, setSelectedId] = useState(data[0]);
 
   const renderItem = ({ item }) => {
@@ -24,7 +24,10 @@ const Tabs = ({ data, style }) => {
     return (
       <Item
         item={item}
-        onPress={() => setSelectedId(item)}
+        onPress={() => {
+          setSelectedId(item);
+          onChange(item);
+        }}
         textColor={{ color }}
       />
     );

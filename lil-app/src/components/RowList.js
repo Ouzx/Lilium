@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  View,
-  TouchableOpacity,
-  Text,
-  StyleSheet,
-  FlatList,
-} from "react-native";
+import { View, Text, FlatList } from "react-native";
 import theme from "../utils/theme";
 
 const RowList = ({
