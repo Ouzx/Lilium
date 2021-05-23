@@ -4,9 +4,9 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import theme from "../utils/theme";
 
-const Genre = ({ name, id, colors }) => {
+const Genre = ({ name, id, colors, style }) => {
   return (
-    <TouchableOpacity style={styles.square}>
+    <TouchableOpacity style={[styles.square, style]}>
       <LinearGradient
         start={{ x: 0.1, y: 0.1 }}
         end={{ x: 1.0, y: 1.0 }}
@@ -23,12 +23,9 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: theme.radius.small,
     borderTopLeftRadius: theme.radius.small,
     borderTopRightRadius: theme.radius.small,
-    width: 147,
-    height: 122,
     backgroundColor: theme.colors.passiveBg,
+    height: 122,
     padding: 16,
-    marginRight: 15,
-    marginBottom: 24,
   },
   innerSquare: {
     width: 24,

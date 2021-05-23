@@ -6,6 +6,8 @@ import theme from "../utils/theme";
 import HWT from "../components/HWT";
 import SearchBar from "../components/SearchBar";
 import RowList from "../components/RowList";
+import RowSectionList from "../components/RowSectionList";
+
 import Genre from "../components/Genre";
 import MiniTopic from "../components/MiniTopic";
 import MiniBookCard from "../components/MiniBookCard";
@@ -17,8 +19,81 @@ import cover3 from "../../assets/covers/cover3.jpg";
 import authorPic from "../../assets/authors/jamesmcbride.jpg";
 
 import jk from "../../assets/authors/JK.png";
-const SearchScreen = () => {
+function SearchScreen() {
   const [focus, setFocus] = useState(false);
+  const DATA = [
+    {
+      title: "The genres you read the most",
+      data: [
+        {
+          id: "x1",
+          name: "News and Politics",
+          colors: ["#CCCDAE", "#44203B"],
+        },
+        {
+          id: "11x",
+          name: "Sci-fi",
+          colors: ["#CDD424", "#BD1493"],
+        },
+        {
+          id: "12x",
+          name: "Magazine",
+          colors: ["#6C22E3", "#44203B"],
+        },
+        {
+          id: "13x",
+          name: "Fantasy",
+          colors: ["#FF07F5", "#C5F114"],
+        },
+      ],
+    },
+    {
+      title: "Categories",
+      data: [
+        {
+          id: "1y",
+          name: "News and Politics",
+          colors: ["#CCCDAE", "#44203B"],
+        },
+        {
+          id: "1gy",
+          name: "Sci-fi",
+          colors: ["#CDD424", "#BD1493"],
+        },
+        {
+          id: "1yf",
+          name: "Magazine",
+          colors: ["#6C22E3", "#44203B"],
+        },
+        {
+          id: "1ye",
+          name: "Fantasy",
+          colors: ["#FF07F5", "#C5F114"],
+        },
+        {
+          id: "1yd",
+          name: "News and Politics1",
+          colors: ["#CCCDAE", "#44203B"],
+        },
+        {
+          id: "1yc",
+          name: "Sci-fi1",
+          colors: ["#CDD424", "#BD1493"],
+        },
+        {
+          id: "1by",
+          name: "Magazine1",
+          colors: ["#6C22E3", "#44203B"],
+        },
+        {
+          id: "1ayy",
+          name: "Fantasy",
+          colors: ["#FF07F5", "#C5F114"],
+        },
+      ],
+    },
+  ];
+
   return (
     <SafeAreaView style={theme.styles.mainContainer}>
       <ScrollView keyboardShouldPersistTaps="handled">
@@ -170,17 +245,12 @@ const SearchScreen = () => {
             />
           </View>
         ) : (
-          <View>
-            <RowList
-              name="The genres you read the most"
-              RenderItem={Genre}
+          <View style={{ flex: 1 }}>
+            <RowSectionList
               numColumns={2}
+              RenderItem={Genre}
               style={{
-                content: {
-                  justifyContent: "center",
-                  alignItems: "center",
-                  paddingBottom: 0,
-                },
+                renderItemStyle: { marginHorizontal: 12, marginBottom: 24 },
                 text: {
                   color: theme.colors.passiveText,
                   fontSize: 16,
@@ -190,98 +260,13 @@ const SearchScreen = () => {
                   paddingBottom: 16,
                 },
               }}
-              isHorizontal={false}
-              data={[
-                {
-                  id: "1",
-                  name: "News and Politics",
-                  colors: ["#CCCDAE", "#44203B"],
-                },
-                {
-                  id: "11",
-                  name: "Sci-fi",
-                  colors: ["#CDD424", "#BD1493"],
-                },
-                {
-                  id: "12",
-                  name: "Magazine",
-                  colors: ["#6C22E3", "#44203B"],
-                },
-                {
-                  id: "13",
-                  name: "Fantasy",
-                  colors: ["#FF07F5", "#C5F114"],
-                },
-              ]}
-            />
-            <RowList
-              name="Categories"
-              RenderItem={Genre}
-              numColumns={2}
-              style={{
-                content: {
-                  justifyContent: "center",
-                  alignItems: "center",
-                  paddingBottom: 0,
-                },
-                text: {
-                  color: theme.colors.passiveText,
-                  fontSize: 16,
-
-                  paddingLeft: theme.numbers.padding,
-                  paddingTop: 16,
-                  paddingBottom: 16,
-                },
-              }}
-              isHorizontal={false}
-              data={[
-                {
-                  id: "1",
-                  name: "News and Politics",
-                  colors: ["#CCCDAE", "#44203B"],
-                },
-                {
-                  id: "1g",
-                  name: "Sci-fi",
-                  colors: ["#CDD424", "#BD1493"],
-                },
-                {
-                  id: "1f",
-                  name: "Magazine",
-                  colors: ["#6C22E3", "#44203B"],
-                },
-                {
-                  id: "1e",
-                  name: "Fantasy",
-                  colors: ["#FF07F5", "#C5F114"],
-                },
-                {
-                  id: "1d",
-                  name: "News and Politics1",
-                  colors: ["#CCCDAE", "#44203B"],
-                },
-                {
-                  id: "1c",
-                  name: "Sci-fi1",
-                  colors: ["#CDD424", "#BD1493"],
-                },
-                {
-                  id: "1b",
-                  name: "Magazine1",
-                  colors: ["#6C22E3", "#44203B"],
-                },
-                {
-                  id: "1a",
-                  name: "Fantasy",
-                  colors: ["#FF07F5", "#C5F114"],
-                },
-              ]}
+              data={DATA}
             />
           </View>
         )}
       </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 export default SearchScreen;
