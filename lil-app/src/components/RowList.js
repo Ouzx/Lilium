@@ -1,51 +1,52 @@
 import React from "react";
-import { Text, View, FlatList } from "react-native";
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  FlatList,
+} from "react-native";
 import theme from "../utils/theme";
 
-import MiniBookCard from "./MiniBookCard";
-import { AntDesign } from "@expo/vector-icons";
-
-const RowList = ({ name, data, style }) => {
+const RowList = ({
+  RenderItem,
+  name,
+  data,
+  style,
+  Seperator,
+  isHorizontal,
+}) => {
   const renderItem = ({ item }) => (
-    <MiniBookCard
-      header={item.header}
-      pageCount={item.pageCount}
-      authorName={item.authorName}
-      authorId={item.authorId}
-      authorPic={item.authorPic}
-      storyId={item.storyId}
-      coverPic={item.coverPic}
-      style={{ marginLeft: 10 }}
-    />
+    <RenderItem {...item} style={style.renderItemStyle} />
   );
 
   return (
-    <View style={style.container}>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          marginBottom: 10,
-          paddingTop: 10,
-          paddingLeft: theme.numbers.padding,
-        }}
-      >
-        <Text
-          style={[{ fontSize: 24, color: theme.colors.activeText }, style.text]}
+    <View style={[{}, style.container]}>
+      {name && (
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            marginBottom: 10,
+            paddingTop: 10,
+            paddingLeft: theme.numbers.padding,
+          }}
         >
-          {name}
-        </Text>
-        <AntDesign
-          name="right"
-          size={20}
-          color="white"
-          style={{ paddingTop: 5, paddingLeft: 5 }}
-        />
-      </View>
+          <Text
+            style={[
+              { fontSize: 16, color: theme.colors.mainPassive },
+              style.text,
+            ]}
+          >
+            {name}
+          </Text>
+          <Seperator />
+        </View>
+      )}
 
       <FlatList
         showsHorizontalScrollIndicator={false}
-        horizontal
+        horizontal={isHorizontal}
         data={data}
         renderItem={renderItem}
         keyExtractor={(item) => item.header}
@@ -53,5 +54,7 @@ const RowList = ({ name, data, style }) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({});
 
 export default RowList;

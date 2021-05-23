@@ -42,6 +42,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
+  borderMe: {
+    borderWidth: 3,
+    borderColor: "white",
+  },
 });
 
 export default {

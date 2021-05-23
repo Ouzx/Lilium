@@ -14,7 +14,7 @@ const Item = ({ item, onPress, textColor }) => (
   </TouchableOpacity>
 );
 
-const Tabs = ({ data }) => {
+const Tabs = ({ data, style }) => {
   const [selectedId, setSelectedId] = useState(data[0]);
 
   const renderItem = ({ item }) => {
@@ -31,20 +31,22 @@ const Tabs = ({ data }) => {
   };
 
   return (
-    <FlatList
-      data={data}
-      renderItem={renderItem}
-      keyExtractor={(item) => item}
-      extraData={selectedId}
-      horizontal
-    />
+    <View style={style}>
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item) => item}
+        extraData={selectedId}
+        horizontal
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   text: {
     fontSize: 16,
-    marginHorizontal: 5,
+    marginRight: 10,
   },
 });
 

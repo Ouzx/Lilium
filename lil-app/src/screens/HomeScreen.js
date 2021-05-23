@@ -16,6 +16,7 @@ import BookCard from "../components/BookCard";
 import Header from "../components/Header";
 import MiniBookCard from "../components/MiniBookCard";
 import RowList from "../components/RowList";
+import { AntDesign } from "@expo/vector-icons";
 
 import authorPic from "../../assets/authors/jamesmcbride.jpg";
 import cover1 from "../../assets/covers/cover1.jpg";
@@ -24,7 +25,15 @@ import cover3 from "../../assets/covers/cover3.jpg";
 import cover3Blur from "../../assets/covers/cover3Blur.png";
 
 const HomeScreen = () => {
-  const recent = "Recent >";
+  const Seperator = () => (
+    <AntDesign
+      name="right"
+      size={20}
+      color="white"
+      style={{ paddingTop: 5, paddingLeft: 5 }}
+    />
+  );
+
   return (
     <SafeAreaView style={[theme.styles.mainContainer]}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -46,6 +55,7 @@ const HomeScreen = () => {
             storyId="1"
             coverPic={cover1}
             badgeText="POPULAR"
+            style={{ marginTop: theme.numbers.padding }}
           />
         </ImageBackground>
         <View
@@ -55,7 +65,13 @@ const HomeScreen = () => {
         >
           <RowList
             name="Keep Reading"
-            style={{}}
+            style={{
+              renderItemStyle: { marginLeft: 10 },
+              text: { fontSize: 24, color: theme.colors.activeText },
+            }}
+            RenderItem={MiniBookCard}
+            Seperator={Seperator}
+            isHorizontal={true}
             data={[
               {
                 header: "Deacon King Kong 1",
@@ -92,231 +108,18 @@ const HomeScreen = () => {
                 authorPic: authorPic,
                 storyId: "1",
                 coverPic: cover2,
-              },
-              {
-                header: "Deacon King Kong 22",
-                pageCount: "522",
-                authorName: "James",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover1,
-              },
-              {
-                header: "Deacon King Kong 33",
-                pageCount: "100",
-                authorName: "McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover3,
-              },
-              {
-                header: "Deacon King Kong 12",
-                pageCount: "500",
-                authorName: "James McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover2,
-              },
-              {
-                header: "Deacon King Kong 21",
-                pageCount: "522",
-                authorName: "James",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover1,
-              },
-              {
-                header: "Deacon King Kong 32",
-                pageCount: "100",
-                authorName: "McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover3,
-              },
-            ]}
-          />
-          <RowList
-            name="Popular"
-            style={{}}
-            data={[
-              {
-                header: "Deacon King Kong 1",
-                pageCount: "500",
-                authorName: "James McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover2,
-              },
-              {
-                header: "Deacon King Kong 2",
-                pageCount: "522",
-                authorName: "James",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover1,
-              },
-              {
-                header: "Deacon King Kong 3",
-                pageCount: "100",
-                authorName: "McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover3,
-              },
-              {
-                header: "Deacon King Kong 11",
-                pageCount: "500",
-                authorName: "James McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover2,
-              },
-              {
-                header: "Deacon King Kong 22",
-                pageCount: "522",
-                authorName: "James",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover1,
-              },
-              {
-                header: "Deacon King Kong 33",
-                pageCount: "100",
-                authorName: "McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover3,
-              },
-              {
-                header: "Deacon King Kong 12",
-                pageCount: "500",
-                authorName: "James McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover2,
-              },
-              {
-                header: "Deacon King Kong 21",
-                pageCount: "522",
-                authorName: "James",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover1,
-              },
-              {
-                header: "Deacon King Kong 32",
-                pageCount: "100",
-                authorName: "McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover3,
-              },
-            ]}
-          />
-          <RowList
-            name="Legend"
-            style={{}}
-            data={[
-              {
-                header: "Deacon King Kong 1",
-                pageCount: "500",
-                authorName: "James McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover2,
-              },
-              {
-                header: "Deacon King Kong 2",
-                pageCount: "522",
-                authorName: "James",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover1,
-              },
-              {
-                header: "Deacon King Kong 3",
-                pageCount: "100",
-                authorName: "McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover3,
-              },
-              {
-                header: "Deacon King Kong 11",
-                pageCount: "500",
-                authorName: "James McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover2,
-              },
-              {
-                header: "Deacon King Kong 22",
-                pageCount: "522",
-                authorName: "James",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover1,
-              },
-              {
-                header: "Deacon King Kong 33",
-                pageCount: "100",
-                authorName: "McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover3,
-              },
-              {
-                header: "Deacon King Kong 12",
-                pageCount: "500",
-                authorName: "James McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover2,
-              },
-              {
-                header: "Deacon King Kong 21",
-                pageCount: "522",
-                authorName: "James",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover1,
-              },
-              {
-                header: "Deacon King Kong 32",
-                pageCount: "100",
-                authorName: "McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover3,
               },
             ]}
           />
           <RowList
             name="NEW"
-            style={{}}
+            style={{
+              renderItemStyle: { marginLeft: 10 },
+              text: { fontSize: 24, color: theme.colors.activeText },
+            }}
+            RenderItem={MiniBookCard}
+            Seperator={Seperator}
+            isHorizontal={true}
             data={[
               {
                 header: "Deacon King Kong 1",
@@ -354,26 +157,20 @@ const HomeScreen = () => {
                 storyId: "1",
                 coverPic: cover2,
               },
+            ]}
+          />
+          <RowList
+            name="Popular"
+            style={{
+              renderItemStyle: { marginLeft: 10 },
+              text: { fontSize: 24, color: theme.colors.activeText },
+            }}
+            RenderItem={MiniBookCard}
+            Seperator={Seperator}
+            isHorizontal={true}
+            data={[
               {
-                header: "Deacon King Kong 22",
-                pageCount: "522",
-                authorName: "James",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover1,
-              },
-              {
-                header: "Deacon King Kong 33",
-                pageCount: "100",
-                authorName: "McBride",
-                authorId: "1",
-                authorPic: authorPic,
-                storyId: "1",
-                coverPic: cover3,
-              },
-              {
-                header: "Deacon King Kong 12",
+                header: "Deacon King Kong 1",
                 pageCount: "500",
                 authorName: "James McBride",
                 authorId: "1",
@@ -382,7 +179,7 @@ const HomeScreen = () => {
                 coverPic: cover2,
               },
               {
-                header: "Deacon King Kong 21",
+                header: "Deacon King Kong 2",
                 pageCount: "522",
                 authorName: "James",
                 authorId: "1",
@@ -391,13 +188,70 @@ const HomeScreen = () => {
                 coverPic: cover1,
               },
               {
-                header: "Deacon King Kong 32",
+                header: "Deacon King Kong 3",
                 pageCount: "100",
                 authorName: "McBride",
                 authorId: "1",
                 authorPic: authorPic,
                 storyId: "1",
                 coverPic: cover3,
+              },
+              {
+                header: "Deacon King Kong 11",
+                pageCount: "500",
+                authorName: "James McBride",
+                authorId: "1",
+                authorPic: authorPic,
+                storyId: "1",
+                coverPic: cover2,
+              },
+            ]}
+          />
+          <RowList
+            name="For you"
+            style={{
+              renderItemStyle: { marginLeft: 10 },
+              text: { fontSize: 24, color: theme.colors.activeText },
+            }}
+            RenderItem={MiniBookCard}
+            Seperator={Seperator}
+            isHorizontal={true}
+            data={[
+              {
+                header: "Deacon King Kong 1",
+                pageCount: "500",
+                authorName: "James McBride",
+                authorId: "1",
+                authorPic: authorPic,
+                storyId: "1",
+                coverPic: cover2,
+              },
+              {
+                header: "Deacon King Kong 2",
+                pageCount: "522",
+                authorName: "James",
+                authorId: "1",
+                authorPic: authorPic,
+                storyId: "1",
+                coverPic: cover1,
+              },
+              {
+                header: "Deacon King Kong 3",
+                pageCount: "100",
+                authorName: "McBride",
+                authorId: "1",
+                authorPic: authorPic,
+                storyId: "1",
+                coverPic: cover3,
+              },
+              {
+                header: "Deacon King Kong 11",
+                pageCount: "500",
+                authorName: "James McBride",
+                authorId: "1",
+                authorPic: authorPic,
+                storyId: "1",
+                coverPic: cover2,
               },
             ]}
           />

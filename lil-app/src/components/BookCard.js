@@ -31,12 +31,7 @@ const BookCard = ({
   style,
 }) => {
   return (
-    <View
-      style={[
-        { position: "relative", marginTop: theme.numbers.padding },
-        style,
-      ]}
-    >
+    <View style={[{ position: "relative" }, style]}>
       <TouchableOpacity
         onPress={() => {
           console.log(header);
