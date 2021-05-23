@@ -3,7 +3,7 @@ import { StyleSheet, Text, ScrollView, View } from "react-native";
 import SafeAreaView from "react-native-safe-area-view";
 import theme from "../utils/theme";
 
-import Header from "../components/Header";
+import HWT from "../components/HWT";
 import SearchBar from "../components/SearchBar";
 import CategoryList from "../components/CategoryList";
 import RowTopicList from "../components/RowTopicList";
@@ -21,24 +21,7 @@ const SearchScreen = () => {
   return (
     <SafeAreaView style={theme.styles.mainContainer}>
       <ScrollView keyboardShouldPersistTaps="handled">
-        <View
-          style={{
-            paddingLeft: theme.numbers.padding,
-            paddingTop: theme.numbers.padding,
-          }}
-        >
-          <Header />
-          <Text
-            style={{
-              marginTop: 35,
-              color: "white",
-              fontSize: 48,
-              fontWeight: "bold",
-            }}
-          >
-            Browse
-          </Text>
-        </View>
+        <HWT text='Browse'/>
         <SearchBar onFocusChange={setFocus} />
         {focus ? (
           <View>
