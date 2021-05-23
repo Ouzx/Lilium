@@ -15,13 +15,13 @@ const RowList = ({
   style,
   Seperator,
   isHorizontal,
+  numColumns,
 }) => {
   const renderItem = ({ item }) => (
-    <RenderItem {...item} style={style.renderItemStyle} />
+    <RenderItem {...item} style={style && style.renderItemStyle} />
   );
-
   return (
-    <View style={[{}, style.container]}>
+    <View style={style && style.container}>
       {name && (
         <View
           style={{
@@ -29,28 +29,30 @@ const RowList = ({
             alignItems: "center",
             marginBottom: 10,
             paddingTop: 10,
-            paddingLeft: theme.numbers.padding,
           }}
         >
           <Text
             style={[
               { fontSize: 16, color: theme.colors.mainPassive },
-              style.text,
+              style && style.text,
             ]}
           >
             {name}
           </Text>
-          <Seperator />
+          {Seperator && <Seperator />}
         </View>
       )}
-
-      <FlatList
-        showsHorizontalScrollIndicator={false}
-        horizontal={isHorizontal}
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.header}
-      />
+      <View style={style && style.content}>
+        <FlatList
+          numColumns={numColumns && numColumns}
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+          horizontal={isHorizontal}
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
     </View>
   );
 };

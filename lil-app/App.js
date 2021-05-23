@@ -20,7 +20,7 @@ const isLoggedIn = true;
 function mainFlow() {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Search"
       tabBarOptions={{
         keyboardHidesTabBar: true,
       }}

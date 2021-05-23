@@ -67,13 +67,18 @@ const HomeScreen = () => {
             name="Keep Reading"
             style={{
               renderItemStyle: { marginLeft: 10 },
-              text: { fontSize: 24, color: theme.colors.activeText },
+              text: {
+                fontSize: 24,
+                color: theme.colors.activeText,
+                paddingLeft: theme.numbers.padding,
+              },
             }}
             RenderItem={MiniBookCard}
             Seperator={Seperator}
             isHorizontal={true}
             data={[
               {
+                id: "11",
                 header: "Deacon King Kong 1",
                 pageCount: "500",
                 authorName: "James McBride",
@@ -83,6 +88,7 @@ const HomeScreen = () => {
                 coverPic: cover2,
               },
               {
+                id: "14",
                 header: "Deacon King Kong 2",
                 pageCount: "522",
                 authorName: "James",
@@ -92,6 +98,7 @@ const HomeScreen = () => {
                 coverPic: cover1,
               },
               {
+                id: "13",
                 header: "Deacon King Kong 3",
                 pageCount: "100",
                 authorName: "McBride",
@@ -101,6 +108,7 @@ const HomeScreen = () => {
                 coverPic: cover3,
               },
               {
+                id: "12",
                 header: "Deacon King Kong 11",
                 pageCount: "500",
                 authorName: "James McBride",
@@ -115,13 +123,18 @@ const HomeScreen = () => {
             name="NEW"
             style={{
               renderItemStyle: { marginLeft: 10 },
-              text: { fontSize: 24, color: theme.colors.activeText },
+              text: {
+                fontSize: 24,
+                color: theme.colors.activeText,
+                paddingLeft: theme.numbers.padding,
+              },
             }}
             RenderItem={MiniBookCard}
             Seperator={Seperator}
             isHorizontal={true}
             data={[
               {
+                id: "12",
                 header: "Deacon King Kong 1",
                 pageCount: "500",
                 authorName: "James McBride",
@@ -131,6 +144,7 @@ const HomeScreen = () => {
                 coverPic: cover2,
               },
               {
+                id: "13",
                 header: "Deacon King Kong 2",
                 pageCount: "522",
                 authorName: "James",
@@ -140,6 +154,7 @@ const HomeScreen = () => {
                 coverPic: cover1,
               },
               {
+                id: "14",
                 header: "Deacon King Kong 3",
                 pageCount: "100",
                 authorName: "McBride",
@@ -149,6 +164,7 @@ const HomeScreen = () => {
                 coverPic: cover3,
               },
               {
+                id: "51",
                 header: "Deacon King Kong 11",
                 pageCount: "500",
                 authorName: "James McBride",
@@ -163,13 +179,18 @@ const HomeScreen = () => {
             name="Popular"
             style={{
               renderItemStyle: { marginLeft: 10 },
-              text: { fontSize: 24, color: theme.colors.activeText },
+              text: {
+                fontSize: 24,
+                color: theme.colors.activeText,
+                paddingLeft: theme.numbers.padding,
+              },
             }}
             RenderItem={MiniBookCard}
             Seperator={Seperator}
             isHorizontal={true}
             data={[
               {
+                id: "12",
                 header: "Deacon King Kong 1",
                 pageCount: "500",
                 authorName: "James McBride",
@@ -179,6 +200,7 @@ const HomeScreen = () => {
                 coverPic: cover2,
               },
               {
+                id: "15",
                 header: "Deacon King Kong 2",
                 pageCount: "522",
                 authorName: "James",
@@ -188,6 +210,7 @@ const HomeScreen = () => {
                 coverPic: cover1,
               },
               {
+                id: "17",
                 header: "Deacon King Kong 3",
                 pageCount: "100",
                 authorName: "McBride",
@@ -197,6 +220,7 @@ const HomeScreen = () => {
                 coverPic: cover3,
               },
               {
+                id: "1a",
                 header: "Deacon King Kong 11",
                 pageCount: "500",
                 authorName: "James McBride",
@@ -211,13 +235,18 @@ const HomeScreen = () => {
             name="For you"
             style={{
               renderItemStyle: { marginLeft: 10 },
-              text: { fontSize: 24, color: theme.colors.activeText },
+              text: {
+                fontSize: 24,
+                color: theme.colors.activeText,
+                paddingLeft: theme.numbers.padding,
+              },
             }}
             RenderItem={MiniBookCard}
             Seperator={Seperator}
             isHorizontal={true}
             data={[
               {
+                id: "1a",
                 header: "Deacon King Kong 1",
                 pageCount: "500",
                 authorName: "James McBride",
@@ -227,6 +256,7 @@ const HomeScreen = () => {
                 coverPic: cover2,
               },
               {
+                id: "1b",
                 header: "Deacon King Kong 2",
                 pageCount: "522",
                 authorName: "James",
@@ -236,6 +266,7 @@ const HomeScreen = () => {
                 coverPic: cover1,
               },
               {
+                id: "1c",
                 header: "Deacon King Kong 3",
                 pageCount: "100",
                 authorName: "McBride",
@@ -245,6 +276,7 @@ const HomeScreen = () => {
                 coverPic: cover3,
               },
               {
+                id: "1d",
                 header: "Deacon King Kong 11",
                 pageCount: "500",
                 authorName: "James McBride",
