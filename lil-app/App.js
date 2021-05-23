@@ -9,6 +9,7 @@ import SearchScreen from "./src/screens/SearchScreen";
 import LibraryScreen from "./src/screens/LibraryScreen";
 import SigninScreen from "./src/screens/SigninScreen";
 import SignupScreen from "./src/screens/SignupScreen";
+import InCategoryScreen from "./src/screens/InCategoryScreen";
 
 import TabBar from "./src/components/TabBar";
 
@@ -45,6 +46,7 @@ function App() {
           {isLoggedIn ? (
             <>
               <Stack.Screen name="Lilium" component={mainFlow} />
+              <Stack.Screen name="Category" component={InCategoryScreen} />
               {/* <Stack.Screen name="sideFlow" component={SettingsScreen} /> */}
             </>
           ) : (

@@ -1,12 +1,17 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
 
 import theme from "../utils/theme";
 
 const Genre = ({ name, id, colors, style }) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={[styles.square, style]}>
+    <TouchableOpacity
+      style={[styles.square, style]}
+      onPress={() => navigation.navigate("Category")}
+    >
       <LinearGradient
         start={{ x: 0.1, y: 0.1 }}
         end={{ x: 1.0, y: 1.0 }}
