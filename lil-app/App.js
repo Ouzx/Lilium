@@ -42,6 +42,7 @@ function App() {
           screenOptions={{
             headerShown: false,
           }}
+          initialRouteName="Category"
         >
           {isLoggedIn ? (
             <>
