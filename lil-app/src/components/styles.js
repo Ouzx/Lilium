@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native";
 import { constants } from "./constants";
+import theme from "../utils/theme";
 const styles = StyleSheet.create({
   homeScreenHeader: {
-    backgroundColor: "#1ca75d",
+    backgroundColor: theme.colors.mainBg,
   },
   headerWrapper: {
     width: "100%",
@@ -17,9 +18,7 @@ const styles = StyleSheet.create({
     width: 142,
   },
   foreground: {
-    flex: 1,
     paddingHorizontal: 24,
-    justifyContent: "flex-end",
   },
   profilePic: {
     width: constants.responsiveWidth(18),
@@ -42,6 +41,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingBottom: 24,
+    backgroundColor: theme.colors.mainBg,
   },
   contentText: {
     fontSize: 24,
@@ -57,14 +57,11 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     paddingHorizontal: 12,
     paddingVertical: 8,
-    color: "white",
+    color: theme.colors.passiveText,
   },
   tabTextContainerStyle: {
     backgroundColor: "transparent",
     borderRadius: 18,
-  },
-  tabTextContainerActiveStyle: {
-    backgroundColor: "rgb(72,189,126)",
   },
   tabsWrapper: {
     paddingVertical: 12,

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import theme from "../utils/theme";
 import ScrollableHeader from "../components/ScrollableHeader";
 
@@ -133,82 +133,84 @@ const InCategoryScreen = () => {
   };
 
   return (
-    <ScrollableHeader
-      tabs={tabs.map((tab, id) => ({ title: tab, content: data[id] }))}
-      title="Positive psychology"
-      backImage={cover3Blur}
-      header={
-        <View>
-          <HWT text="Positive psychology" />
-          <View
-            style={{
-              marginLeft: 30,
-              marginTop: 30,
-              flexDirection: "row",
-              flexWrap: "wrap",
-              alignItems: "center",
-            }}
-          >
-            <AuthorCount authorCount="1.224" />
-            <BookCount bookCount="1.286" style={{ marginHorizontal: 20 }} />
-            <RatingCount ratingCount="4.9 (11926)" />
-          </View>
-
-          <View
-            style={{
-              marginLeft: 30,
-              marginTop: 30,
-              flexDirection: "row",
-              flexWrap: "wrap",
-              alignItems: "center",
-            }}
-          >
-            <Button
-              text="Subscribe"
+    <SafeAreaView style={[theme.styles.mainContainer]}>
+      <ScrollableHeader
+        tabs={tabs.map((tab, id) => ({ title: tab, content: data[id] }))}
+        title="Positive psychology"
+        backImage={cover3Blur}
+        header={
+          <View>
+            <HWT text="Positive psychology" />
+            <View
               style={{
-                text: {
-                  width: 72,
-                  height: 27,
-                  fontSize: 16,
-                  color: theme.colors.activeText,
-                },
-                button: {
-                  width: 155,
-                  height: 51,
-                  backgroundColor: theme.colors.blue,
-                  marginRight: 20,
-                },
+                marginLeft: 30,
+                marginTop: 30,
+                flexDirection: "row",
+                flexWrap: "wrap",
+                alignItems: "center",
               }}
-            />
-            <Text style={{ fontSize: 14, color: "white" }}>
-              +4.7k followers
-            </Text>
+            >
+              <AuthorCount authorCount="1.224" />
+              <BookCount bookCount="1.286" style={{ marginHorizontal: 20 }} />
+              <RatingCount ratingCount="4.9 (11926)" />
+            </View>
+
+            <View
+              style={{
+                marginLeft: 30,
+                marginTop: 30,
+                flexDirection: "row",
+                flexWrap: "wrap",
+                alignItems: "center",
+              }}
+            >
+              <Button
+                text="Subscribe"
+                style={{
+                  text: {
+                    width: 72,
+                    height: 27,
+                    fontSize: 16,
+                    color: theme.colors.activeText,
+                  },
+                  button: {
+                    width: 155,
+                    height: 51,
+                    backgroundColor: theme.colors.blue,
+                    marginRight: 20,
+                  },
+                }}
+              />
+              <Text style={{ fontSize: 14, color: "white" }}>
+                +4.7k followers
+              </Text>
+            </View>
           </View>
-        </View>
-      }
-      stick={
-        <Tabs
-          data={tabs}
-          style={[{ marginLeft: 30, marginTop: 20 }]}
-          onChange={onChange}
-        />
-      }
-      bottomData={
-        <RowList
-          RenderItem={BookCard}
-          isHorizontal={false}
-          style={{
-            container: { flex: 1 },
-            renderItemStyle: {
-              marginHorizontal: theme.numbers.padding,
-              marginTop: theme.numbers.padding - 10,
-              marginBottom: 10,
-            },
-          }}
-          data={data}
-        />
-      }
-    />
+        }
+        stick={
+          <Tabs
+            data={tabs}
+            style={[{ marginLeft: 30, marginTop: 20 }]}
+            onChange={onChange}
+          />
+        }
+        bottomData={
+          <RowList
+            RenderItem={BookCard}
+            isHorizontal={false}
+            style={{
+              container: { flex: 1 },
+              renderItemStyle: {
+                marginHorizontal: theme.numbers.padding,
+                marginTop: theme.numbers.padding - 10,
+                marginBottom: 10,
+              },
+            }}
+            data={data}
+          />
+        }
+      />
+    </SafeAreaView>
   );
 };
 

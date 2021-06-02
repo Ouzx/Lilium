@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, Image, StatusBar, Animated, Platform } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  StatusBar,
+  Animated,
+  Platform,
+  TouchableOpacity,
+} from "react-native";
 import StickyParallaxHeader from "react-native-sticky-parallax-header";
 
 import { constants, sizes, colors } from "./constants";
 import styles from "./styles";
-import logo from "../../assets/logo/logo.png";
+import { Ionicons } from "@expo/vector-icons";
 import BookCard from "./BookCard";
 import theme from "../utils/theme";
 const { event, ValueXY } = Animated;
@@ -37,16 +45,51 @@ export default class ScrollableHeader extends React.Component {
     return constants.scrollPosition(headerLayout.height, value);
   };
 
-  renderHeader = () => (
-    <View style={[styles.headerWrapper, styles.homeScreenHeader]}>
-      <Image resizeMode="contain" source={logo} style={styles.logo} />
-    </View>
-  );
+  renderHeader = () => {
+    const [startTitleFade, finishTitleFade] = [
+      this.scrollPosition(25),
+      this.scrollPosition(45),
+    ];
+
+    const opacity = this.scrollY.y.interpolate({
+      inputRange: [0, startTitleFade, finishTitleFade],
+      outputRange: [0, 1, 1],
+      extrapolate: "clamp",
+    });
+    return (
+      <View
+        style={{
+          width: "100%",
+          paddingHorizontal: 24,
+          paddingTop: 55,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <TouchableOpacity onPress={() => console.log("CLICKED")}>
+            <Ionicons name="arrow-back" size={24} color="white" />
+          </TouchableOpacity>
+          <Animated.View style={[{ opacity }]}>
+            <Text
+              style={{
+                color: "white",
+                paddingLeft: 20,
+                fontSize: 20,
+                fontWeight: "bold",
+              }}
+            >
+              {this.props.title}
+            </Text>
+          </Animated.View>
+        </View>
+      </View>
+    );
+  };
 
   renderForeground = () => {
     const message = this.props.title;
-    const startSize = constants.responsiveWidth(18);
-    const endSize = constants.responsiveWidth(10);
 
     const [startTitleFade, finishTitleFade] = [
       this.scrollPosition(25),
@@ -81,20 +124,12 @@ export default class ScrollableHeader extends React.Component {
           <BookCard
             style={{
               marginTop: 12,
-              shadowColor: colors.shadowColor,
-              shadowOffset: {
-                width: 2,
-                heght: 2,
-              },
-              shadowRadius: 40,
-              shadowOpacity: 0.08,
+
               width: "100%",
-              backgroundColor: colors.white,
-              borderRadius: 24,
+              // backgroundColor: colors.white,
+
               paddingHorizontal: 20,
               paddingVertical: 16,
-              borderWidth: Platform.select({ ios: 0, android: 2 }),
-              borderColor: colors.paleGrey,
             }}
             {...tab.content}
           />
@@ -157,7 +192,7 @@ export default class ScrollableHeader extends React.Component {
       <React.Fragment>
         <StatusBar
           barStyle="light-content"
-          backgroundColor={"#1ca75d"}
+          backgroundColor={theme.colors.barBg}
           translucent
         />
         <StickyParallaxHeader
@@ -168,7 +203,7 @@ export default class ScrollableHeader extends React.Component {
             content: this.renderContent(tab.title),
           }))}
           deviceWidth={constants.deviceWidth}
-          parallaxHeight={sizes.homeScreenParallaxHeader}
+          parallaxHeight={sizes.homeScreenParallaxHeader / 2}
           scrollEvent={event(
             [{ nativeEvent: { contentOffset: { y: this.scrollY.y } } }],
             { useNativeDriver: false }
@@ -176,10 +211,10 @@ export default class ScrollableHeader extends React.Component {
           headerSize={this.setHeaderSize}
           headerHeight={sizes.headerHeight}
           tabTextStyle={styles.tabText}
-          tabTextContainerStyle={styles.tabTextContainerStyle}
-          tabTextContainerActiveStyle={styles.tabTextContainerActiveStyle}
-          tabsContainerBackgroundColor={"#1ca75d"}
+          tabTextActiveStyle={{ color: theme.colors.blue }}
+          tabsContainerBackgroundColor={theme.colors.mainBg}
           tabsWrapperStyle={styles.tabsWrapper}
+          tabsContainerStyle={{ marginTop: 20 }}
         >
           {this.renderContent(this.props.tabs.title)}
         </StickyParallaxHeader>
