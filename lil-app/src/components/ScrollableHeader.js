@@ -115,10 +115,30 @@ export default class ScrollableHeader extends React.Component {
     const onLayout = (event) =>
       this.setState({ foreHeight: event.nativeEvent.layout.height });
 
+    const startSize = constants.responsiveWidth(18);
+    const endSize = constants.responsiveWidth(10);
+    const [startImgFade, finishImgFade] = [
+      this.scrollPosition(22),
+      this.scrollPosition(27),
+    ];
+    const [startImgSize, finishImgSize] = [
+      this.scrollPosition(20),
+      this.scrollPosition(30),
+    ];
     const [startTitleFade, finishTitleFade] = [
       this.scrollPosition(25),
       this.scrollPosition(45),
     ];
+    const imageOpacity = this.scrollY.y.interpolate({
+      inputRange: [0, startImgFade, finishImgFade],
+      outputRange: [1, 1, 0],
+      extrapolate: "clamp",
+    });
+    const imageSize = this.scrollY.y.interpolate({
+      inputRange: [0, startImgSize, finishImgSize],
+      outputRange: [startSize, startSize, endSize],
+      extrapolate: "clamp",
+    });
 
     const titleOpacity = this.scrollY.y.interpolate({
       inputRange: [0, startTitleFade, finishTitleFade],
@@ -133,6 +153,17 @@ export default class ScrollableHeader extends React.Component {
         >
           <Text style={styles.message}>{message}</Text>
         </Animated.View>
+        {this.props.ppImage && (
+          <Animated.View style={{ opacity: imageOpacity }}>
+            <Animated.Image
+              source={this.props.ppImage}
+              style={[
+                styles.profilePic,
+                { width: imageSize, height: imageSize },
+              ]}
+            />
+          </Animated.View>
+        )}
         {this.props.foreground}
       </View>
     );
@@ -246,6 +277,7 @@ export default class ScrollableHeader extends React.Component {
             tabsContainerStyle={{
               // marginBottom: 30,
               backgroundColor: theme.colors.bgImage,
+              flex: 1,
             }}
             refreshControl={
               <RefreshControl
