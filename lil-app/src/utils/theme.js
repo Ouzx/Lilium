@@ -23,6 +23,8 @@ const colors = {
 
   purple: "#C600F9",
   blue: "#3369FF",
+
+  bgImage: "rgba(9,18,28,0.85)",
 };
 
 const styles = StyleSheet.create({
@@ -32,7 +34,7 @@ const styles = StyleSheet.create({
   },
   infoText: {
     color: colors.passiveText,
-    fontSize: 13,
+    fontSize: 14,
   },
   activeText: {
     color: colors.activeText,

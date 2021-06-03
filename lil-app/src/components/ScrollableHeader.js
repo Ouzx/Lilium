@@ -7,6 +7,7 @@ import {
   Animated,
   Platform,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
 import StickyParallaxHeader from "react-native-sticky-parallax-header";
 
@@ -15,6 +16,7 @@ import styles from "./styles";
 import { Ionicons } from "@expo/vector-icons";
 import BookCard from "./BookCard";
 import theme from "../utils/theme";
+import { color } from "react-native-reanimated";
 const { event, ValueXY } = Animated;
 
 export default class ScrollableHeader extends React.Component {
@@ -26,6 +28,7 @@ export default class ScrollableHeader extends React.Component {
         height: 0,
       },
       contentHeight: {},
+      foreHeight: sizes.homeScreenParallaxHeader,
     };
     this.scrollY = new ValueXY();
   }
@@ -91,6 +94,9 @@ export default class ScrollableHeader extends React.Component {
   renderForeground = () => {
     const message = this.props.title;
 
+    const onLayout = (event) =>
+      this.setState({ foreHeight: event.nativeEvent.layout.height });
+
     const [startTitleFade, finishTitleFade] = [
       this.scrollPosition(25),
       this.scrollPosition(45),
@@ -103,12 +109,13 @@ export default class ScrollableHeader extends React.Component {
     });
 
     return (
-      <View style={styles.foreground}>
+      <View style={styles.foreground} onLayout={onLayout}>
         <Animated.View
           style={[styles.messageContainer, { opacity: titleOpacity }]}
         >
           <Text style={styles.message}>{message}</Text>
         </Animated.View>
+        {this.props.foreground}
       </View>
     );
   };
@@ -121,18 +128,9 @@ export default class ScrollableHeader extends React.Component {
     return this.props.tabs.map(
       (tab) =>
         title === tab.title && (
-          <BookCard
-            style={{
-              marginTop: 12,
-
-              width: "100%",
-              // backgroundColor: colors.white,
-
-              paddingHorizontal: 20,
-              paddingVertical: 16,
-            }}
-            {...tab.content}
-          />
+          <View key={tab.content.id} style={{ width: "100%" }}>
+            {tab.content}
+          </View>
         )
     );
   };
@@ -189,36 +187,50 @@ export default class ScrollableHeader extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <StatusBar
-          barStyle="light-content"
-          backgroundColor={theme.colors.barBg}
-          translucent
-        />
-        <StickyParallaxHeader
-          foreground={this.renderForeground()}
-          header={this.renderHeader()}
-          tabs={this.props.tabs.map((tab) => ({
-            title: tab.title,
-            content: this.renderContent(tab.title),
-          }))}
-          deviceWidth={constants.deviceWidth}
-          parallaxHeight={sizes.homeScreenParallaxHeader / 2}
-          scrollEvent={event(
-            [{ nativeEvent: { contentOffset: { y: this.scrollY.y } } }],
-            { useNativeDriver: false }
-          )}
-          headerSize={this.setHeaderSize}
-          headerHeight={sizes.headerHeight}
-          tabTextStyle={styles.tabText}
-          tabTextActiveStyle={{ color: theme.colors.blue }}
-          tabsContainerBackgroundColor={theme.colors.mainBg}
-          tabsWrapperStyle={styles.tabsWrapper}
-          tabsContainerStyle={{ marginTop: 20 }}
-        >
-          {this.renderContent(this.props.tabs.title)}
-        </StickyParallaxHeader>
-      </React.Fragment>
+      <ImageBackground
+        source={this.props.backImage}
+        style={{
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          position: "absolute",
+          flex: 1,
+        }}
+        resizeMode="cover"
+      >
+        <View style={[{ flex: 1, backgroundColor: theme.colors.bgImage }]}>
+          <StatusBar
+            barStyle="light-content"
+            backgroundColor={theme.colors.barBg}
+            translucent
+          />
+          <StickyParallaxHeader
+            foreground={this.renderForeground()}
+            header={this.renderHeader()}
+            tabs={this.props.tabs.map((tab) => ({
+              title: tab.title,
+              content: this.renderContent(tab.title),
+            }))}
+            deviceWidth={constants.deviceWidth}
+            parallaxHeight={this.state.foreHeight}
+            scrollEvent={event(
+              [{ nativeEvent: { contentOffset: { y: this.scrollY.y } } }],
+              { useNativeDriver: false }
+            )}
+            headerSize={this.setHeaderSize}
+            headerHeight={sizes.headerHeight}
+            tabTextStyle={styles.tabText}
+            tabTextActiveStyle={{ color: theme.colors.blue }}
+            tabsContainerBackgroundColor={colors.transparent}
+            tabsWrapperStyle={styles.tabsWrapper}
+            tabsContainerStyle={{ marginTop: 20 }}
+            // backgroundColor={theme.colors.bgImage}
+          >
+            {this.renderContent(this.props.tabs.title)}
+          </StickyParallaxHeader>
+        </View>
+      </ImageBackground>
     );
   }
 }
