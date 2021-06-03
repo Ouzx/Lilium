@@ -24,7 +24,7 @@ const colors = {
   purple: "#C600F9",
   blue: "#3369FF",
 
-  bgImage: "rgba(9,18,28,0.85)",
+  bgImage: "rgba(9,18,28,0.7)",
 };
 
 const styles = StyleSheet.create({

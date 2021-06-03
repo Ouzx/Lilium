@@ -15,8 +15,7 @@ const styles = StyleSheet.create({
     width: 142,
   },
   foreground: {
-    paddingHorizontal: 24,
-
+    padding: 24,
     // flex: 1,
   },
   profilePic: {

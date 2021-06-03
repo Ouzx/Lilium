@@ -28,7 +28,7 @@ import cover3Blur from "../../assets/covers/cover3Blur.png";
 const InCategoryScreen = () => {
   const tabs = ["Continue", "Read it Later", "Readed", "Saved Cards"];
   // selectedIndex will only effect the source of data but components will stay same.
-  const [selectedId, setId] = useState(tabs[0]);
+
   const data = [
     <BookCard
       {...{
@@ -191,16 +191,13 @@ const InCategoryScreen = () => {
       }}
     />,
   ];
-  const onChange = (id) => {
-    setId(id);
-  };
 
   return (
     <SafeAreaView style={[theme.styles.mainContainer]}>
       <ScrollableHeader
         tabs={tabs.map((tab, id) => ({
           title: tab,
-          content: [data[id]],
+          content: [data[id], data[0], data[2], data[3]],
         }))}
         title="Positive psychology"
         backImage={back1}

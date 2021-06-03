@@ -52,7 +52,7 @@ export default class ScrollableHeader extends React.Component {
 
     this.setState({ refreshing: true });
 
-    wait(2000).then(() => {
+    wait(500).then(() => {
       this.setState({ refreshing: false });
     });
   };
@@ -84,23 +84,27 @@ export default class ScrollableHeader extends React.Component {
           alignItems: "center",
         }}
       >
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <TouchableOpacity onPress={() => console.log("CLICKED")}>
-            <Ionicons name="arrow-back" size={24} color="white" />
-          </TouchableOpacity>
-          <Animated.View style={[{ opacity }]}>
-            <Text
-              style={{
-                color: "white",
-                paddingLeft: 20,
-                fontSize: 20,
-                fontWeight: "bold",
-              }}
-            >
-              {this.props.title}
-            </Text>
-          </Animated.View>
-        </View>
+        {this.props.headerBool ? (
+          this.props.headerContent
+        ) : (
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <TouchableOpacity onPress={() => console.log("CLICKED")}>
+              <Ionicons name="arrow-back" size={24} color="white" />
+            </TouchableOpacity>
+            <Animated.View style={[{ opacity }]}>
+              <Text
+                style={{
+                  color: "white",
+                  paddingLeft: 20,
+                  fontSize: 20,
+                  fontWeight: "bold",
+                }}
+              >
+                {this.props.title}
+              </Text>
+            </Animated.View>
+          </View>
+        )}
       </View>
     );
   };
@@ -236,9 +240,13 @@ export default class ScrollableHeader extends React.Component {
             headerHeight={sizes.headerHeight}
             tabTextStyle={styles.tabText}
             tabTextActiveStyle={{ color: theme.colors.blue }}
-            tabsContainerBackgroundColor={colors.transparent}
+            tabsContainerBackgroundColor={theme.colors.bgImage}
+            backgroundColor={theme.colors.bgImage}
             tabsWrapperStyle={styles.tabsWrapper}
-            tabsContainerStyle={{ marginTop: 20 }}
+            tabsContainerStyle={{
+              // marginBottom: 30,
+              backgroundColor: theme.colors.bgImage,
+            }}
             refreshControl={
               <RefreshControl
                 //  z Index is required on IOS, to refresh indicator be visible
@@ -250,7 +258,6 @@ export default class ScrollableHeader extends React.Component {
                 onRefresh={this.onRefresh}
               />
             }
-            // backgroundColor={theme.colors.bgImage}
           >
             {this.renderContent(this.props.tabs.title)}
           </StickyParallaxHeader>
