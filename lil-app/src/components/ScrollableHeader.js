@@ -8,6 +8,7 @@ import {
   Platform,
   TouchableOpacity,
   ImageBackground,
+  RefreshControl,
 } from "react-native";
 import StickyParallaxHeader from "react-native-sticky-parallax-header";
 
@@ -29,6 +30,7 @@ export default class ScrollableHeader extends React.Component {
       },
       contentHeight: {},
       foreHeight: sizes.homeScreenParallaxHeader,
+      refreshing: false,
     };
     this.scrollY = new ValueXY();
   }
@@ -42,6 +44,18 @@ export default class ScrollableHeader extends React.Component {
 
   setHeaderSize = (headerLayout) => this.setState({ headerLayout });
 
+  onRefresh = () => {
+    const wait = (timeout) =>
+      new Promise((resolve) => {
+        setTimeout(resolve, timeout);
+      });
+
+    this.setState({ refreshing: true });
+
+    wait(2000).then(() => {
+      this.setState({ refreshing: false });
+    });
+  };
   scrollPosition = (value) => {
     const { headerLayout } = this.state;
 
@@ -225,6 +239,17 @@ export default class ScrollableHeader extends React.Component {
             tabsContainerBackgroundColor={colors.transparent}
             tabsWrapperStyle={styles.tabsWrapper}
             tabsContainerStyle={{ marginTop: 20 }}
+            refreshControl={
+              <RefreshControl
+                //  z Index is required on IOS, to refresh indicator be visible
+                style={{ zIndex: 1 }}
+                refreshing={this.state.refreshing}
+                titleColor="white"
+                tintColor="white"
+                title="Refreshing"
+                onRefresh={this.onRefresh}
+              />
+            }
             // backgroundColor={theme.colors.bgImage}
           >
             {this.renderContent(this.props.tabs.title)}
