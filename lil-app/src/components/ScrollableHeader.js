@@ -147,11 +147,13 @@ export default class ScrollableHeader extends React.Component {
     });
 
     return (
-      <View style={styles.foreground} onLayout={onLayout}>
+      <View style={[styles.foreground, this.props.fore]} onLayout={onLayout}>
         <Animated.View
           style={[styles.messageContainer, { opacity: titleOpacity }]}
         >
-          <Text style={styles.message}>{message}</Text>
+          <Text style={[styles.message, this.props.messageStyle]}>
+            {message}
+          </Text>
         </Animated.View>
         {this.props.ppImage && (
           <Animated.View style={{ opacity: imageOpacity }}>
@@ -233,11 +235,10 @@ export default class ScrollableHeader extends React.Component {
       </View>
     );
   };
-
   render() {
     return (
       <ImageBackground
-        source={this.props.backImage}
+        source={!this.props.noBg && this.props.backImage}
         style={{
           top: 0,
           left: 0,
@@ -269,6 +270,9 @@ export default class ScrollableHeader extends React.Component {
             )}
             headerSize={this.setHeaderSize}
             headerHeight={sizes.headerHeight}
+            backgroundImage={
+              this.props.noBg && require("../../assets/covers/cover1.jpg")
+            }
             tabTextStyle={styles.tabText}
             tabTextActiveStyle={{ color: theme.colors.blue }}
             tabsContainerBackgroundColor={theme.colors.bgImage}

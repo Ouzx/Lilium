@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import theme from "../utils/theme";
 import { AntDesign } from "@expo/vector-icons";
 
-const DownloadButton = ({ text, style }) => {
+const DownloadButton = ({ text, style, textStyle }) => {
   return (
     <TouchableOpacity style={[style]} onPress={() => console.log(text)}>
       <View
@@ -19,7 +19,7 @@ const DownloadButton = ({ text, style }) => {
       >
         <AntDesign name="download" size={15} color="white" />
       </View>
-      <Text style={theme.styles.infoText}>{text}</Text>
+      <Text style={[theme.styles.infoText, textStyle]}>{text}</Text>
     </TouchableOpacity>
   );
 };
