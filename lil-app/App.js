@@ -12,6 +12,7 @@ import SignupScreen from "./src/screens/SignupScreen";
 import InCategoryScreen from "./src/screens/InCategoryScreen";
 import AuthorScreen from "./src/screens/AuthorScreen";
 import BookScreen from "./src/screens/BookScreen";
+import ReadScreen from "./src/screens/ReadScreen";
 
 import TabBar from "./src/components/TabBar";
 
@@ -44,7 +45,7 @@ function App() {
           screenOptions={{
             headerShown: false,
           }}
-          initialRouteName="Book"
+          initialRouteName="Read"
         >
           {isLoggedIn ? (
             <>
@@ -52,6 +53,7 @@ function App() {
               <Stack.Screen name="Category" component={InCategoryScreen} />
               <Stack.Screen name="Author" component={AuthorScreen} />
               <Stack.Screen name="Book" component={BookScreen} />
+              <Stack.Screen name="Read" component={ReadScreen} />
               {/* <Stack.Screen name="sideFlow" component={SettingsScreen} /> */}
             </>
           ) : (
