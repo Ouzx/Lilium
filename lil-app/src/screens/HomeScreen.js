@@ -56,6 +56,7 @@ const HomeScreen = () => {
             coverPic={cover1}
             badgeText="POPULAR"
             style={{ marginTop: theme.numbers.padding }}
+           
           />
         </ImageBackground>
         <View
@@ -78,7 +79,7 @@ const HomeScreen = () => {
             isHorizontal={true}
             data={[
               {
-                id: "11",
+                key: "11",
                 header: "Deacon King Kong 1",
                 pageCount: "500",
                 authorName: "James McBride",
@@ -88,7 +89,7 @@ const HomeScreen = () => {
                 coverPic: cover2,
               },
               {
-                id: "14",
+                key: "14",
                 header: "Deacon King Kong 2",
                 pageCount: "522",
                 authorName: "James",
@@ -98,7 +99,7 @@ const HomeScreen = () => {
                 coverPic: cover1,
               },
               {
-                id: "13",
+                key: "13",
                 header: "Deacon King Kong 3",
                 pageCount: "100",
                 authorName: "McBride",
@@ -108,7 +109,7 @@ const HomeScreen = () => {
                 coverPic: cover3,
               },
               {
-                id: "12",
+                key: "12",
                 header: "Deacon King Kong 11",
                 pageCount: "500",
                 authorName: "James McBride",
@@ -134,7 +135,7 @@ const HomeScreen = () => {
             isHorizontal={true}
             data={[
               {
-                id: "12",
+                key: "12",
                 header: "Deacon King Kong 1",
                 pageCount: "500",
                 authorName: "James McBride",
@@ -144,7 +145,7 @@ const HomeScreen = () => {
                 coverPic: cover2,
               },
               {
-                id: "13",
+                key: "13",
                 header: "Deacon King Kong 2",
                 pageCount: "522",
                 authorName: "James",
@@ -154,7 +155,7 @@ const HomeScreen = () => {
                 coverPic: cover1,
               },
               {
-                id: "14",
+                key: "14",
                 header: "Deacon King Kong 3",
                 pageCount: "100",
                 authorName: "McBride",
@@ -164,7 +165,7 @@ const HomeScreen = () => {
                 coverPic: cover3,
               },
               {
-                id: "51",
+                key: "51",
                 header: "Deacon King Kong 11",
                 pageCount: "500",
                 authorName: "James McBride",
@@ -190,7 +191,7 @@ const HomeScreen = () => {
             isHorizontal={true}
             data={[
               {
-                id: "12",
+                key: "12",
                 header: "Deacon King Kong 1",
                 pageCount: "500",
                 authorName: "James McBride",
@@ -200,7 +201,7 @@ const HomeScreen = () => {
                 coverPic: cover2,
               },
               {
-                id: "15",
+                key: "15",
                 header: "Deacon King Kong 2",
                 pageCount: "522",
                 authorName: "James",
@@ -210,7 +211,7 @@ const HomeScreen = () => {
                 coverPic: cover1,
               },
               {
-                id: "17",
+                key: "17",
                 header: "Deacon King Kong 3",
                 pageCount: "100",
                 authorName: "McBride",
@@ -220,7 +221,7 @@ const HomeScreen = () => {
                 coverPic: cover3,
               },
               {
-                id: "1a",
+                key: "1a",
                 header: "Deacon King Kong 11",
                 pageCount: "500",
                 authorName: "James McBride",
@@ -246,7 +247,7 @@ const HomeScreen = () => {
             isHorizontal={true}
             data={[
               {
-                id: "1a",
+                key: "1a",
                 header: "Deacon King Kong 1",
                 pageCount: "500",
                 authorName: "James McBride",
@@ -256,7 +257,7 @@ const HomeScreen = () => {
                 coverPic: cover2,
               },
               {
-                id: "1b",
+                key: "1b",
                 header: "Deacon King Kong 2",
                 pageCount: "522",
                 authorName: "James",
@@ -266,7 +267,7 @@ const HomeScreen = () => {
                 coverPic: cover1,
               },
               {
-                id: "1c",
+                key: "1c",
                 header: "Deacon King Kong 3",
                 pageCount: "100",
                 authorName: "McBride",
@@ -276,7 +277,7 @@ const HomeScreen = () => {
                 coverPic: cover3,
               },
               {
-                id: "1d",
+                key: "1d",
                 header: "Deacon King Kong 11",
                 pageCount: "500",
                 authorName: "James McBride",

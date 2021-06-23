@@ -23,7 +23,7 @@ const LibraryScreen = () => {
   const data = [
     <BookCard
       {...{
-        id: "1",
+        key: "1vxcvx",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -43,7 +43,7 @@ const LibraryScreen = () => {
     />,
     <BookCard
       {...{
-        id: "1as",
+        key: "1as",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -63,7 +63,7 @@ const LibraryScreen = () => {
     />,
     <BookCard
       {...{
-        id: "12",
+        key: "12",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -83,7 +83,7 @@ const LibraryScreen = () => {
     />,
     <BookCard
       {...{
-        id: "1fff",
+        key: "1fff",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -103,7 +103,7 @@ const LibraryScreen = () => {
     />,
     <BookCard
       {...{
-        id: "1ii",
+        key: "1ii",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -123,7 +123,7 @@ const LibraryScreen = () => {
     />,
     <BookCard
       {...{
-        id: "1ais",
+        key: "1ais",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -143,7 +143,7 @@ const LibraryScreen = () => {
     />,
     <BookCard
       {...{
-        id: "i1i2",
+        key: "i1i2",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -163,7 +163,7 @@ const LibraryScreen = () => {
     />,
     <BookCard
       {...{
-        id: "1ffif",
+        key: "1ffif",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -186,10 +186,13 @@ const LibraryScreen = () => {
   return (
     <SafeAreaView style={theme.styles.mainContainer}>
       <ScrollableHeader
-        tabs={tabs.map((tab, id) => ({
-          title: tab,
-          content: [data[id], data[0], data[2], data[3]],
-        }))}
+        tabs={tabs.map((tab, key) => {
+          // console.log(tab + " " + key);
+          return {
+            title: tab,
+            content: [data[key]],
+          };
+        })}
         title="Your Library"
         backImage={back1}
         headerContent={<Header />}

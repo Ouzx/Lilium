@@ -88,7 +88,7 @@ export default class ScrollableHeader extends React.Component {
           this.props.headerContent
         ) : (
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <TouchableOpacity onPress={() => console.log("CLICKED")}>
+            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
               <Ionicons name="arrow-back" size={24} color="white" />
             </TouchableOpacity>
             <Animated.View style={[{ opacity }]}>

@@ -45,7 +45,7 @@ const RowList = ({
           horizontal={isHorizontal}
           data={data}
           renderItem={renderItem}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.key}
         />
       </View>
     </View>

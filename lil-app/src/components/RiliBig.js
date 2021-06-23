@@ -4,13 +4,15 @@ import theme from "../utils/theme";
 
 import readIcon from "../../assets/icons/read.png";
 
-const RiliBig = ({ onPress, style, id }) => {
+import { useNavigation } from "@react-navigation/native";
+
+
+const RiliBig = ({ style, id }) => {
+  const navigation = useNavigation();
   return (
     <TouchableOpacity
       style={[styles.riliBack, style]}
-      onPress={() => {
-        console.log("Story: " + id);
-      }}
+      onPress={() => navigation.navigate("Read")}
     >
       <Image source={readIcon} style={styles.rili} />
     </TouchableOpacity>

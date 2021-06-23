@@ -25,14 +25,14 @@ import cover2 from "../../assets/covers/cover2.jpg";
 import cover3 from "../../assets/covers/cover3.jpg";
 import cover3Blur from "../../assets/covers/cover3Blur.png";
 
-const InCategoryScreen = () => {
+const InCategoryScreen = ({ navigation }) => {
   const tabs = ["Continue", "Read it Later", "Readed", "Saved Cards"];
   // selectedIndex will only effect the source of data but components will stay same.
 
   const data = [
     <BookCard
       {...{
-        id: "1",
+        key: "1",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -52,7 +52,7 @@ const InCategoryScreen = () => {
     />,
     <BookCard
       {...{
-        id: "1as",
+        key: "1as",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -72,7 +72,7 @@ const InCategoryScreen = () => {
     />,
     <BookCard
       {...{
-        id: "12",
+        key: "12",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -92,7 +92,7 @@ const InCategoryScreen = () => {
     />,
     <BookCard
       {...{
-        id: "1fff",
+        key: "1fff",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -112,7 +112,7 @@ const InCategoryScreen = () => {
     />,
     <BookCard
       {...{
-        id: "1ii",
+        key: "1ii",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -132,7 +132,7 @@ const InCategoryScreen = () => {
     />,
     <BookCard
       {...{
-        id: "1ais",
+        key: "1ais",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -152,7 +152,7 @@ const InCategoryScreen = () => {
     />,
     <BookCard
       {...{
-        id: "i1i2",
+        key: "i1i2",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -172,7 +172,7 @@ const InCategoryScreen = () => {
     />,
     <BookCard
       {...{
-        id: "1ffif",
+        key: "1ffif",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -195,12 +195,13 @@ const InCategoryScreen = () => {
   return (
     <SafeAreaView style={[theme.styles.mainContainer]}>
       <ScrollableHeader
-        tabs={tabs.map((tab, id) => ({
+        tabs={tabs.map((tab, key) => ({
           title: tab,
-          content: [data[id], data[0], data[2], data[3]],
+          content: [data[key]],
         }))}
         title="Positive psychology"
         backImage={back1}
+        navigation={navigation}
         foreground={
           <View>
             <View

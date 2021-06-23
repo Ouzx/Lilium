@@ -2,12 +2,14 @@ import React from "react";
 import { Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import theme from "../utils/theme";
 
-const MicroAuthor = ({ name, pic, id }) => {
+import { useNavigation } from "@react-navigation/native";
+
+
+const MicroAuthor = ({name, pic, id }) => {
+  const navigation = useNavigation();
   return (
     <TouchableOpacity
-      onPress={() => {
-        console.log("Author:" + id);
-      }}
+      onPress={() => navigation.navigate("Author")}
       style={theme.styles.horizontalCenter}
     >
       <Image source={pic} style={styles.authorPic} />

@@ -31,7 +31,7 @@ import { Slider } from "react-native-elements";
 import Cards from "../components/icons/Cards";
 import { Fontisto } from "@expo/vector-icons";
 import DownloadButton from "../components/DownloadButton";
-const BookScreen = () => {
+const BookScreen = ({ navigation }) => {
   const tabs = ["Chapters"];
   const [value, setValue] = useState(0);
   const [like, setlike] = useState(1029);
@@ -40,7 +40,7 @@ const BookScreen = () => {
   const data = [
     <MicroBookCard
       {...{
-        id: "1",
+        key: "1",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -60,7 +60,7 @@ const BookScreen = () => {
     />,
     <MicroBookCard
       {...{
-        id: "1as",
+        key: "1as",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -80,7 +80,7 @@ const BookScreen = () => {
     />,
     <MicroBookCard
       {...{
-        id: "12",
+        key: "12",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -100,7 +100,7 @@ const BookScreen = () => {
     />,
     <MicroBookCard
       {...{
-        id: "1fff",
+        key: "1fff",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -120,7 +120,7 @@ const BookScreen = () => {
     />,
     <MicroBookCard
       {...{
-        id: "1ii",
+        key: "1ii",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -140,7 +140,7 @@ const BookScreen = () => {
     />,
     <MicroBookCard
       {...{
-        id: "1ais",
+        key: "1ais",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -160,7 +160,7 @@ const BookScreen = () => {
     />,
     <MicroBookCard
       {...{
-        id: "i1i2",
+        key: "i1i2",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -180,7 +180,7 @@ const BookScreen = () => {
     />,
     <MicroBookCard
       {...{
-        id: "1ffif",
+        key: "1ffif",
         header: "Deacon King Kong 1",
         description:
           "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn.",
@@ -203,9 +203,9 @@ const BookScreen = () => {
   return (
     <SafeAreaView style={theme.styles.mainContainer}>
       <ScrollableHeader
-        tabs={tabs.map((tab, id) => ({
+        tabs={tabs.map((tab, key) => ({
           title: tab,
-          content: [data[id], data[0], data[2], data[3]],
+          content: [data[key]],
         }))}
         title="Harry Potter and the Philosopher's Stone"
         noBg={true}
@@ -220,6 +220,7 @@ const BookScreen = () => {
           padding: 0,
           paddingTop: 30,
         }}
+        navigation={navigation}
         foreground={
           <View>
             <View

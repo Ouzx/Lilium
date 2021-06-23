@@ -16,6 +16,9 @@ import RatingCount from "./RatingCount";
 import MicroAuthor from "./MicroAuthor";
 import RiliBig from "./RiliBig";
 
+import { useNavigation } from "@react-navigation/native";
+
+
 const BookCard = ({
   header,
   description,
@@ -30,12 +33,12 @@ const BookCard = ({
   badgeColor,
   style,
 }) => {
+
+  const navigation = useNavigation();
   return (
     <View style={[{ position: "relative" }, style]}>
       <TouchableOpacity
-        onPress={() => {
-          console.log(header);
-        }}
+        onPress={() => navigation.navigate("Book")}
       >
         <ImageBackground
           source={coverPic}
@@ -62,6 +65,7 @@ const BookCard = ({
           <RiliBig
             style={{ left: "95%", top: 110, position: "absolute" }}
             id={storyId}
+           
           />
         </ImageBackground>
       </TouchableOpacity>

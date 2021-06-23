@@ -7,6 +7,7 @@ import PageCount from "./PageCount";
 import MicroAuthor from "./MicroAuthor";
 import RiliMini from "./RiliMini";
 
+import { useNavigation } from "@react-navigation/native";
 const MiniBookCard = ({
   header,
   pageCount,
@@ -17,6 +18,8 @@ const MiniBookCard = ({
   coverPic,
   style,
 }) => {
+const navigation = useNavigation();
+
   return (
     <View
       style={[
@@ -29,9 +32,7 @@ const MiniBookCard = ({
       ]}
     >
       <TouchableOpacity
-        onPress={() => {
-          console.log(header);
-        }}
+        onPress={() => navigation.navigate("Book")}
       >
         <Image source={coverPic} style={styles.card} />
         <View style={{ paddingLeft: 5 }}>

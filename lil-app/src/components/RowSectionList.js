@@ -53,7 +53,7 @@ const RowSectionList = ({ RenderItem, data, style, numColumns }) => {
     <View style={style && style.container}>
       <SectionList
         sections={data}
-        keyExtractor={(item) => item.id + item.name}
+        keyExtractor={(item) => item.key + item.name + Math.random()}
         renderItem={_renderItem}
         renderSectionHeader={({ section: { title } }) => headerItem(title)}
         showsVerticalScrollIndicator={false}

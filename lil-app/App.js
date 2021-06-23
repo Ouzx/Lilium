@@ -45,7 +45,7 @@ function App() {
           screenOptions={{
             headerShown: false,
           }}
-          initialRouteName="Read"
+          initialRouteName="Lilium"
         >
           {isLoggedIn ? (
             <>

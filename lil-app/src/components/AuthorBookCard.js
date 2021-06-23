@@ -7,7 +7,10 @@ import PageCount from "./PageCount";
 import RiliMini from "./RiliMini";
 import DownloadButton from "./DownloadButton";
 
+import { useNavigation } from "@react-navigation/native";
+
 const AuthorBookCard = ({ header, description, pageCount, storyId, style }) => {
+  const navigation = useNavigation();
   return (
     <View
       style={[
@@ -18,9 +21,8 @@ const AuthorBookCard = ({ header, description, pageCount, storyId, style }) => {
       ]}
     >
       <TouchableOpacity
-        onPress={() => {
-          console.log(header);
-        }}
+       onPress={() => navigation.navigate("Book")}
+
       >
         <View style={{ flexDirection: "row" }}>
           <RiliMini style={{ margin: 15, marginRight: 25 }} id={storyId} />

@@ -1,13 +1,14 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import theme from "../utils/theme";
+import { useNavigation } from "@react-navigation/native";
+
 
 const AuthorCard = ({ header, bookCount, color, authorId, pic, style }) => {
+  const navigation = useNavigation();
   return (
     <TouchableOpacity
-      onPress={() => {
-        console.log(header);
-      }}
+      onPress={() => navigation.navigate("Author")}
       style={[styles.container, style]}
     >
       <View style={[styles.card, { backgroundColor: color }]}>

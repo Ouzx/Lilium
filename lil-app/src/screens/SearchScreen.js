@@ -19,29 +19,29 @@ import cover3 from "../../assets/covers/cover3.jpg";
 import authorPic from "../../assets/authors/jamesmcbride.jpg";
 
 import jk from "../../assets/authors/JK.png";
-function SearchScreen() {
+function SearchScreen({navigation}) {
   const [focus, setFocus] = useState(false);
   const DATA = [
     {
       title: "The genres you read the most",
       data: [
         {
-          id: "x1",
+          key: "x1",
           name: "News and Politics",
           colors: ["#CCCDAE", "#44203B"],
         },
         {
-          id: "11x",
+          key: "11x",
           name: "Sci-fi",
           colors: ["#CDD424", "#BD1493"],
         },
         {
-          id: "12x",
+          key: "12x",
           name: "Magazine",
           colors: ["#6C22E3", "#44203B"],
         },
         {
-          id: "13x",
+          key: "13x",
           name: "Fantasy",
           colors: ["#FF07F5", "#C5F114"],
         },
@@ -51,42 +51,42 @@ function SearchScreen() {
       title: "Categories",
       data: [
         {
-          id: "1y",
+          key: "1y",
           name: "News and Politics",
           colors: ["#CCCDAE", "#44203B"],
         },
         {
-          id: "1gy",
+          key: "1gy",
           name: "Sci-fi",
           colors: ["#CDD424", "#BD1493"],
         },
         {
-          id: "1yf",
+          key: "1yvvf",
           name: "Magazine",
           colors: ["#6C22E3", "#44203B"],
         },
         {
-          id: "1ye",
+          key: "1yevxc",
           name: "Fantasy",
           colors: ["#FF07F5", "#C5F114"],
         },
         {
-          id: "1yd",
+          key: "1yvvcxxd",
           name: "News and Politics1",
           colors: ["#CCCDAE", "#44203B"],
         },
         {
-          id: "1yc",
+          key: "1vxcvxcvxcvyc",
           name: "Sci-fi1",
           colors: ["#CDD424", "#BD1493"],
         },
         {
-          id: "1by",
+          key: "1bvxcvxcbnnvby",
           name: "Magazine1",
           colors: ["#6C22E3", "#44203B"],
         },
         {
-          id: "1ayy",
+          key: "1ayghjghjy",
           name: "Fantasy",
           colors: ["#FF07F5", "#C5F114"],
         },
@@ -104,6 +104,7 @@ function SearchScreen() {
             <RowList
               name="Topics (4)"
               RenderItem={MiniTopic}
+              navigate={navigation.navigate}
               style={{
                 text: {
                   color: theme.colors.passiveText,
@@ -116,7 +117,7 @@ function SearchScreen() {
               isHorizontal={true}
               data={[
                 {
-                  id: "asd",
+                  key: "asdx",
                   header: "Crime",
                   bookCount: 17,
                   ratingCount: "3.2 (1452)",
@@ -124,7 +125,7 @@ function SearchScreen() {
                   coverPic: cover1,
                 },
                 {
-                  id: "asda",
+                  key: "asdayy",
                   header: "Crime1",
                   bookCount: 17,
                   ratingCount: "3.2 (1452)",
@@ -132,7 +133,7 @@ function SearchScreen() {
                   coverPic: cover1,
                 },
                 {
-                  id: "asddd",
+                  key: "asddfghfgd",
                   header: "Crime2",
                   bookCount: 17,
                   ratingCount: "3.2 (1452)",
@@ -152,10 +153,11 @@ function SearchScreen() {
                 },
               }}
               RenderItem={MiniBookCard}
+              navigate={navigation.navigate}
               isHorizontal={true}
               data={[
                 {
-                  id: "asd",
+                  key: "asd",
                   header: "Deacon King Kong 1",
                   pageCount: "500",
                   authorName: "James McBride",
@@ -165,7 +167,7 @@ function SearchScreen() {
                   coverPic: cover2,
                 },
                 {
-                  id: "as123d",
+                  key: "as123d",
                   header: "Deacon King Kong 2",
                   pageCount: "522",
                   authorName: "James",
@@ -175,7 +177,7 @@ function SearchScreen() {
                   coverPic: cover1,
                 },
                 {
-                  id: "as412d",
+                  key: "as412d",
                   header: "Deacon King Kong 3",
                   pageCount: "100",
                   authorName: "McBride",
@@ -185,7 +187,7 @@ function SearchScreen() {
                   coverPic: cover3,
                 },
                 {
-                  id: "as333d",
+                  key: "as333d",
                   header: "Deacon King Kong 11",
                   pageCount: "500",
                   authorName: "James McBride",
@@ -195,7 +197,7 @@ function SearchScreen() {
                   coverPic: cover2,
                 },
                 {
-                  id: "asd111",
+                  key: "asd111",
                   header: "Deacon King Kong 22",
                   pageCount: "522",
                   authorName: "James",
@@ -221,21 +223,21 @@ function SearchScreen() {
               }}
               data={[
                 {
-                  id: "123",
+                  key: "12mm3",
                   header: "J.K. Rowling1",
                   bookCount: 86,
                   color: theme.colors.activeRed,
                   pic: jk,
                 },
                 {
-                  id: "1233",
+                  key: "12mmm33",
                   header: "J.K. Rowling2",
                   bookCount: 86,
                   color: theme.colors.activeRed,
                   pic: jk,
                 },
                 {
-                  id: "1213",
+                  key: "12m13",
                   header: "J.K. Rowling3",
                   bookCount: 86,
                   color: theme.colors.activeRed,
@@ -261,6 +263,7 @@ function SearchScreen() {
                 },
               }}
               data={DATA}
+              navigate={navigation.navigate}
             />
           </View>
         )}

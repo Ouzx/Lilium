@@ -12,6 +12,8 @@ import theme from "../utils/theme";
 import BookCount from "./BookCount";
 import RatingCount from "./RatingCount";
 
+import { useNavigation } from "@react-navigation/native";
+
 const MiniTopic = ({
   header,
   bookCount,
@@ -19,13 +21,14 @@ const MiniTopic = ({
   topicId,
   coverPic,
   style,
+ 
 }) => {
+  const navigation = useNavigation();
   return (
     <View style={[style]}>
       <TouchableOpacity
-        onPress={() => {
-          console.log(header);
-        }}
+        onPress={() => navigation.navigate("Category")}
+
       >
         <ImageBackground
           source={coverPic}

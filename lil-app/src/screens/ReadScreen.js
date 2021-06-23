@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import Swiper from "react-native-deck-swiper";
-import { Button, StyleSheet, Text, View, StatusBar } from "react-native";
+import {
+  Button,
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+  TouchableOpacity,
+} from "react-native";
 import SafeAreaView from "react-native-safe-area-view";
 import theme from "../utils/theme";
 
@@ -173,13 +180,14 @@ yürüyüp fırından bir çörek almak istedi. \
   };
 
   onSwiped = (props) => {
-    console.log(props);
+    // console.log(props);
   };
 
   onSwipedAllCards = () => {
     this.setState({
       swipedAllCards: true,
     });
+    this.props.navigation.goBack();
   };
 
   render() {
@@ -201,7 +209,9 @@ yürüyüp fırından bir çörek almak istedi. \
               alignItems: "center",
             }}
           >
-            <Ionicons name="arrow-back" size={27} color="white" />
+            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+              <Ionicons name="arrow-back" size={27} color="white" />
+            </TouchableOpacity>
             <Text
               style={{
                 fontSize: 18,
@@ -223,7 +233,6 @@ yürüyüp fırından bir çörek almak istedi. \
               this.swiper = swiper;
             }}
             onSwiped={(index) => {
-              console.log(this.state.currentIndex);
               this.setState({ currentIndex: this.state.currentIndex + 1 });
             }}
             cards={this.state.cards}
