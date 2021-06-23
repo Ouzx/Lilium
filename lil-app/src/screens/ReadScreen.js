@@ -11,7 +11,7 @@ import {
 import SafeAreaView from "react-native-safe-area-view";
 import theme from "../utils/theme";
 
-import { Pause, Pen, SaveCard } from "../components/icons";
+import { Pause, Pen, SaveCard, ShareCard } from "../components/icons";
 
 import { Ionicons } from "@expo/vector-icons";
 
@@ -170,11 +170,29 @@ yürüyüp fırından bir çörek almak istedi. \
     const bg = this.interpolateCards(index);
     const { topic, content } = card;
     return (
-      <View style={[styles.card, { backgroundColor: bg, padding: 20 }]}>
+      <View
+        style={[
+          styles.card,
+          { backgroundColor: bg, padding: 20, position: "relative" },
+        ]}
+      >
         <Text style={styles.text}>{topic}</Text>
         <Text style={{ fontSize: 13, color: "white", lineHeight: 20 }}>
           {content}
         </Text>
+
+        <View
+          style={{
+            flex: 1,
+            position: "absolute",
+            left: "100%",
+            top: "100%",
+          }}
+        >
+          <TouchableOpacity onPress={() => console.log("Shared!")}>
+            <ShareCard />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   };
@@ -224,7 +242,9 @@ yürüyüp fırından bir çörek almak istedi. \
               {" "}
               HarryPotter and the Sorcerer's Stone
             </Text>
-            <Ionicons name="md-settings-outline" size={27} color="white" />
+            <TouchableOpacity onPress={() => console.log("Settings")}>
+              <Ionicons name="md-settings-outline" size={27} color="white" />
+            </TouchableOpacity>
           </View>
         </View>
         <View style={{ flex: 1 }}>
@@ -281,9 +301,15 @@ yürüyüp fırından bir çörek almak istedi. \
             }}
           >
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Pen />
-              <Pause style={{ marginHorizontal: 20 }} />
-              <SaveCard />
+              <TouchableOpacity onPress={() => console.log("Pen")}>
+                <Pen />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => console.log("Pause")}>
+                <Pause style={{ marginHorizontal: 20 }} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => console.log("Save")}>
+                <SaveCard />
+              </TouchableOpacity>
             </View>
           </View>
         </View>
