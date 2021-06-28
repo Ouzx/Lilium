@@ -18,7 +18,6 @@ import RiliBig from "./RiliBig";
 
 import { useNavigation } from "@react-navigation/native";
 
-
 const BookCard = ({
   header,
   description,
@@ -33,13 +32,10 @@ const BookCard = ({
   badgeColor,
   style,
 }) => {
-
   const navigation = useNavigation();
   return (
     <View style={[{ position: "relative" }, style]}>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Book")}
-      >
+      <TouchableOpacity onPress={() => navigation.navigate("Book")}>
         <ImageBackground
           source={coverPic}
           style={styles.card}
@@ -49,9 +45,9 @@ const BookCard = ({
           <Text style={styles.description}>{description}</Text>
 
           {/* PAGES / STARS / AUTHOR */}
-          <View style={{ position: "absolute", top: 100, left: 30 }}>
+          <View style={{ position: "absolute", top: 120, left: 30 }}>
             <View
-              style={{ marginTop: 10, marginBottom: 10, flexDirection: "row" }}
+              style={{ marginTop: 10, marginBottom: 5, flexDirection: "row" }}
             >
               <PageCount pageCount={pageCount} />
               <RatingCount
@@ -65,7 +61,6 @@ const BookCard = ({
           <RiliBig
             style={{ left: "95%", top: 110, position: "absolute" }}
             id={storyId}
-           
           />
         </ImageBackground>
       </TouchableOpacity>
